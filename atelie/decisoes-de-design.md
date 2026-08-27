@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.5** · 2026-08-11 · artefato **estável** (D14/D17). Alterações desde a v8.4: **D23** — reversão do **D22**, que fica registrado como revogado. Volta a valer o modelo de duas cópias (execução + correia de transmissão), sem camada de pasta local; o D21 segue intacto e o plugin de Produtividade volta a ficar em aberto (M7).
+> **Versão 8.6** · 2026-08-27 · artefato **estável** (D14/D17). Alterações desde a v8.5: **D24** — artefato vivo por **natureza de uso**, com o Project-filho sustentando três (caderno, CSV de cartões, notas de melhoria) em lista fechada. Emenda o **D14** (que dizia *um único*) sem alterar o seu princípio, e traz a trava que o compensa: as notas de melhoria são **fila de saída**, esvaziadas no fechamento da tarefa, e o cartão só admite **conteúdo arbitrário**. Fecha as duas rotas divergentes de memorização (seção 1.4 do caderno × CSV irmão) em favor do CSV.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -272,6 +272,28 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 
 **Fronteira:** o D21 **não** é afetado — a regra de fonte da apostila (original nunca reduzido; PDF bruto como fallback temporário) independe de onde o arquivo mora. O que cai é só a camada de armazenamento e a hierarquia entre cópias.
 
+### D24 — Artefato vivo por natureza de uso; o Project-filho sustenta três (emenda ao D14)
+
+**Contexto:** o D14 decidiu **um único** arquivo vivo por Project-filho, com justificativa explícita: a fricção de baixar-e-re-subir a cada sessão é o que faz protocolo ser abandonado na prática. O campo desmentiu a premissa em duas frentes ao mesmo tempo. O Project de Engenharia de Software atravessou a tarefa 10 inteira (30+ questões) com **três** arquivos vivos — caderno, CSV de cartões e notas de melhoria — sem abandono de nenhum. E o mecanismo de memorização, que não existia em skill nem em template, nasceu sozinho em **duas rotas incompatíveis**: seção 1.4 em tabela markdown dentro do caderno de Tributário (C1–C8) e arquivo CSV irmão em Engenharia de Software (35 cartões). Duas implementações da mesma necessidade divergindo em *lugar*, não só em schema, é dívida que encarece a cada sessão.
+
+**Decisão:** o critério de alocação deixa de ser *quantidade* e passa a ser **natureza de uso**. Cada Project-filho sustenta até **três** artefatos vivos, em **lista fechada**:
+
+1. **`caderno-<disciplina>.md`** — *registro*. Estado do aluno, dossiê de banca, errata da fonte (D14). Formato definido pelo sistema.
+2. **`flashcards-<disciplina>.csv`** — *memorização*. Formato definido por **ferramenta externa** (Anki), não pelo sistema.
+3. **`notas-de-melhoria-<disciplina>.md`** — *fricção*. O que o professor ou o método falharam em entregar, observado na própria sessão de estudo. É a matéria-prima de onde nascem os itens do ateliê.
+
+**Por que o cartão não cabe dentro do caderno:** seu formato é ditado de fora — colunas fixas, separador declarado, cabeçalhos `#chave:valor`, HTML nos campos. Embutir isso em tabela markdown obriga a uma conversão manual a cada importação, e conversão manual recorrente é exatamente o que o D14 nomeia como causa de protocolo abandonado. O mesmo argumento do D14 aponta, aqui, para o lado oposto.
+
+**Por que a fricção não sobe direto ao backlog:** o backlog é do Project-mãe e se atualiza em **sessão de ateliê**. A fricção nasce em **sessão de estudo**, quando o arquiteto está de chapéu de aluno. Exigir que ele abra o ateliê no meio do estudo para registrá-la contraria o D18 (estudo antes de ateliê) — e o que não se registra na hora se perde, que é a premissa de todo este protocolo.
+
+**A trava que preserva o D14 — fila de saída, não acervo:** as notas de melhoria **esvaziam** no fechamento da tarefa. Triadas para a seção 3 do backlog em sessão de ateliê, são **podadas do arquivo**. O caderno e o CSV acumulam, cada um com as suas travas próprias (consolidação e poda no caderno, D14; critério de admissão do cartão, abaixo); o arquivo de notas, não. Arquivo vivo que só cresce e nunca esvazia é o que o D14 temia, e é isso que fica proibido — não a existência do terceiro arquivo.
+
+**Critério de admissão do cartão (a trava do CSV):** vira cartão apenas o **conteúdo arbitrário** — lista fechada, par que se troca, rótulo, número, dispositivo, definição literal cobrada. Onde há **critério gerador** (a resposta se deduz), não se emite cartão: o remédio é compreensão, e o destino é o material derivado de revisão. É a bifurcação da `metodo-professor` 1.2 aplicada à emissão. Isto substitui qualquer teto numérico por sessão: o que infla o baralho é cartão de coisa dedutível, não volume de cartão legítimo.
+
+**Fronteira:** três, nomeados, lista fechada. Um quarto artefato vivo exige emenda a esta decisão, não conveniência de sessão. O que não couber nos três ou é registro (vai ao caderno) ou é ateliê (vai ao backlog).
+
+**Emenda ao D14:** onde o D14 diz *um único arquivo por Project-filho*, leia-se *um único arquivo por natureza de uso, entre as três nomeadas aqui*. O princípio do D14 — **minimizar artefatos vivos, não artefatos totais** — segue intacto: o que ele mede é carga operacional simultânea, e as três naturezas não competem entre si dentro de uma sessão.
+
 ## Glossário
  
 - **Ilusão de fluência:** sentir que aprendeu porque o texto era fácil de ler, sem reter de fato.
@@ -282,6 +304,9 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **Project-mãe / Projects-filhos:** o ateliê das skills e prompts / os professores onde se estuda.
 - **Mineração de sinais:** garimpar os marcadores de incidência/pegadinha que o autor já deixou na fonte.
 - **Artefato estável × artefato vivo:** o que se edita raramente e em lote (skills) × o que cresce a cada sessão (caderno do project).
+- **As três naturezas de artefato vivo do Project-filho (D24):** *registro* (`caderno-<disciplina>.md`) · *memorização* (`flashcards-<disciplina>.csv`) · *fricção* (`notas-de-melhoria-<disciplina>.md`). Lista fechada.
+- **Fila de saída × acervo:** arquivo vivo que **esvazia** ao ser triado (as notas de melhoria, podadas no fechamento da tarefa) × arquivo vivo que acumula sob travas próprias (caderno e CSV). O que o D14 proíbe é acervo sem trava, não o terceiro arquivo (D24).
+- **Conteúdo arbitrário × critério gerador:** o que só se sabe por memória (lista fechada, rótulo, número, dispositivo) × o que se deduz de um critério. O primeiro vira cartão; o segundo vira compreensão e, se couber, material de revisão (D24, aplicando a bifurcação da `metodo-professor` 1.2).
 - **Caderno da disciplina:** arquivo único do Project-filho, com duas seções — estado do aluno e dossiê de banca.
 - **Passe de promoção:** ritual periódico no Project-mãe em que regra amadurecida no caderno sobe para a skill e é podada do caderno.
 - **Backlog do ateliê:** arquivo vivo do Project-mãe (inventário + fila de trabalho + fricções). Este documento aponta para ele; não repete seu conteúdo.
