@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.6** · 2026-08-27 · artefato **estável** (D14/D17). Alterações desde a v8.5: **D24** — artefato vivo por **natureza de uso**, com o Project-filho sustentando três (caderno, CSV de cartões, notas de melhoria) em lista fechada. Emenda o **D14** (que dizia *um único*) sem alterar o seu princípio, e traz a trava que o compensa: as notas de melhoria são **fila de saída**, esvaziadas no fechamento da tarefa, e o cartão só admite **conteúdo arbitrário**. Fecha as duas rotas divergentes de memorização (seção 1.4 do caderno × CSV irmão) em favor do CSV.
+> **Versão 8.7** · 2026-09-11 · artefato **estável** (D14/D17). Alterações desde a v8.6: **D25** — o Project-filho existe por disciplina, não por bateria de questões, e o caderno passa a registrar **dois eixos** de indicador (travamento de conteúdo × erro em questão). Emenda o gatilho de abertura que vinha sendo aplicado por precedente (L6, C7, C4 do backlog) e altera o escopo do caderno definido no D14 sem mexer nas suas travas.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -294,6 +294,32 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 
 **Emenda ao D14:** onde o D14 diz *um único arquivo por Project-filho*, leia-se *um único arquivo por natureza de uso, entre as três nomeadas aqui*. O princípio do D14 — **minimizar artefatos vivos, não artefatos totais** — segue intacto: o que ele mede é carga operacional simultânea, e as três naturezas não competem entre si dentro de uma sessão.
 
+### D25 — O Project existe por disciplina; o caderno tem dois eixos de indicador
+
+**Contexto:** três itens do backlog vinham aplicando, por precedente, uma regra que nunca foi decidida: o **L6** adiou o Project de Legislação Tributária Estadual porque a tarefa era leitura pura, o **C7** adiou Português pelo mesmo motivo, e o **C4** registrou Governança de TI como "teoria — sem gatilho". O critério de abertura tinha virado *ter bateria de questões*. Na sessão de 2026-09-11, ao abrir o professor de Governança de TI, o arquiteto nomeou o que o precedente estava custando: o Project-filho não é só a casa da bateria — é o **repositório das perguntas e dúvidas** dele, de conteúdo e de questão. Sem Project aberto, a dúvida de teoria acontece em chat comum e evapora com a aba.
+
+**Decisão, em duas partes:**
+
+1. **O Project-filho abre com a disciplina, não com a bateria.** Toda disciplina em estudo tem Project, prompt de estado e caderno instanciado, haja ou não questões. O que a ausência de bateria adia é a **skill de disciplina** — essa continua dependendo de questão real, porque catálogo de pegadinha sem campo é invenção (D8). Abrir Project é barato; inventar catálogo é caro.
+2. **O caderno passa a registrar dois eixos**, com indicador próprio cada:
+   - **Eixo conteúdo** — bloco 1.1, entradas **T#** (travamentos). Nasce da leitura: onde travei, em que aula/página, com que **carga** (intrínseca × extrínseca, D2), o que destravou, se reincidiu. Indicador: **densidade** de travamento por volume lido, **carga dominante** por tema e reincidência.
+   - **Eixo questão** — bloco 1.2, entradas **E#**, como já existia. Indicador: placar de três parcelas e padrão dominante.
+
+**Por quê (parte 1):** o gatilho por bateria confundia *o que o Project serve* com *o que o Project mede*. Ele serve para acumular a interação — pergunta, dúvida, explicação, registro — e isso começa na primeira leitura. Medir só quando há questão é o que torna a disciplina de teoria invisível no sistema, exatamente onde a evasão de dúvida é maior, porque não há gabarito para denunciá-la.
+
+**Por quê (parte 2):** os dois eixos medem habilidades diferentes e um não prevê o outro — dá para entender bem e errar na prova (falha de técnica), e dá para acertar por reconhecimento sem ter entendido (a ilusão de fluência do D1, agora visível no cruzamento). O cruzamento é o produto novo: erro de conteúdo num tema com travamento registrado é **dúvida adiada, não fechada** — e isso nenhuma das duas tabelas mostra sozinha.
+
+**A carga como indicador de quem tem o problema:** a coluna intrínseca × extrínseca transforma o D2, que era um critério de decisão do professor no momento de explicar, em **série histórica**. Extrínseca dominante num tema deixa de ser impressão e vira evidência sobre a **fonte** — com destino declarado: errata (Seção 3) ou troca de material, nunca "estudar mais". É também a fronteira que este D fixa: **carga extrínseca não é errata** — a fonte mal escrita não é fonte errada.
+
+**As travas que impedem o caderno de virar diário (o D14 preservado):**
+
+1. **Critério de admissão do T#:** só entra o que o aluno **não teria resolvido sozinho relendo o trecho**. Curiosidade lateral, checagem e pedido de exemplo sobre ponto já entendido ficam de fora. É o espelho do "não registre acerto limpo".
+2. **Consolidação por reincidência:** três travamentos no mesmo ponto viram **lacuna estrutural** (bloco 1.3) e os T# que a formaram são podados, guardando origem e data — poda reversível, mesma razão da regra consolidada do dossiê. A 1.1 cresce com **pontos distintos que o aluno não decodifica sozinho**, conjunto pequeno, não com o número de perguntas feitas.
+
+**Fronteira — o que o D25 não faz:** não reabre a otimização-primeiro. O T# é registro **pós-travamento**, derivado do que já aconteceu; continua proibido varrer o capítulo em busca de dificuldades futuras (o M13 do backlog, que discute triagem preventiva, segue pendente e não é resolvido aqui). Não cria artefato vivo novo — os três do D24 seguem sendo três, e o eixo novo mora dentro do caderno. E não altera as travas do D14: schema de uma linha no dossiê, consolidação e promoção em passe deliberado seguem idênticos.
+
+**Mecanismo:** template do caderno **1.3 → 2.0** (bloco 1.1 novo, renumeração de 1.2/1.3/1.4, tipo de sessão, carimbo e controle de integridade com T#); `analise-desempenho` **2.1 → 2.2** (gatilho de registro sem questão, schema T#, cruzamento entre eixos, trava de consolidação do eixo conteúdo, fechamento com placar de teoria, regras inegociáveis 16 e 17); backlog (L6, C7 e C4 perdem a condição de gatilho por bateria).
+
 ## Glossário
  
 - **Ilusão de fluência:** sentir que aprendeu porque o texto era fácil de ler, sem reter de fato.
@@ -307,6 +333,9 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **As três naturezas de artefato vivo do Project-filho (D24):** *registro* (`caderno-<disciplina>.md`) · *memorização* (`flashcards-<disciplina>.csv`) · *fricção* (`notas-de-melhoria-<disciplina>.md`). Lista fechada.
 - **Fila de saída × acervo:** arquivo vivo que **esvazia** ao ser triado (as notas de melhoria, podadas no fechamento da tarefa) × arquivo vivo que acumula sob travas próprias (caderno e CSV). O que o D14 proíbe é acervo sem trava, não o terceiro arquivo (D24).
 - **Conteúdo arbitrário × critério gerador:** o que só se sabe por memória (lista fechada, rótulo, número, dispositivo) × o que se deduz de um critério. O primeiro vira cartão; o segundo vira compreensão e, se couber, material de revisão (D24, aplicando a bifurcação da `metodo-professor` 1.2).
+- **Eixo conteúdo × eixo questão (D25):** as duas naturezas de indicador do estado do aluno — onde ele trava *entendendo* (travamentos T#, bloco 1.1) × onde ele erra *decidindo sob pressão* (entradas E#, bloco 1.2). Um não prevê o outro, e o cruzamento entre eles é o que revela dúvida adiada.
+- **Travamento (T#):** registro de ponto que o aluno não decodificou sozinho na leitura, com a carga (intrínseca × extrínseca) anotada. Três no mesmo ponto viram lacuna estrutural.
+- **Densidade de travamento:** travamentos por volume lido (por dezena de páginas), o indicador do eixo conteúdo. Número absoluto não se compara entre sessões de tamanhos diferentes.
 - **Caderno da disciplina:** arquivo único do Project-filho, com duas seções — estado do aluno e dossiê de banca.
 - **Passe de promoção:** ritual periódico no Project-mãe em que regra amadurecida no caderno sobe para a skill e é podada do caderno.
 - **Backlog do ateliê:** arquivo vivo do Project-mãe (inventário + fila de trabalho + fricções). Este documento aponta para ele; não repete seu conteúdo.
