@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.7** · 2026-09-11 · artefato **estável** (D14/D17). Alterações desde a v8.6: **D25** — o Project-filho existe por disciplina, não por bateria de questões, e o caderno passa a registrar **dois eixos** de indicador (travamento de conteúdo × erro em questão). Emenda o gatilho de abertura que vinha sendo aplicado por precedente (L6, C7, C4 do backlog) e altera o escopo do caderno definido no D14 sem mexer nas suas travas.
+> **Versão 8.8** · 2026-09-15 · artefato **estável** (D14/D17). Alterações desde a v8.7: **D26** — o arquivo de edições é método interno, nunca entregável: toda versão nova sai integral, aplicada por script sobre a cópia íntegra (skill `entrega-de-artefato`). Emenda o item 3 do **D15**, cuja exceção de "integral inviável" foi a porta do incidente de 2026-09-11.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -130,7 +130,7 @@ Fluxo completo: sessão → fechamento grava no caderno → reincidência consol
    - **Arquivo vivo (caderno)** — versiona por **data de atualização + contagem de entradas** no cabeçalho, não por número: ele muda toda sessão, e numerá-lo geraria ruído sem informação.
    - **Artefato derivado (caderno de revisão, material de sessão)** — data e sessão de origem no próprio arquivo.
 2. **Numeração:** `MAJOR.MINOR`. **MINOR** = patch de conteúdo, acréscimo de bloco, correção. **MAJOR** = mudança estrutural (seções novas, mudança de escopo ou de fronteira entre camadas).
-3. **Entrega sempre integral.** Ao patchar qualquer artefato, entregar a **versão completa já atualizada**, pronta para substituir a anterior — nunca só o trecho novo. Quando o integral for inviável (artefato grande demais, ou edição em arquivo que não está em mãos), o trecho vem com **instrução cirúrgica**: âncora exata de onde entra (texto imediatamente anterior/posterior), o que substitui, e o que conferir depois de inserir.
+3. **Entrega sempre integral.** Ao patchar qualquer artefato, entregar a **versão completa já atualizada**, pronta para substituir a anterior — nunca só o trecho novo. Quando o integral for inviável (artefato grande demais, ou edição em arquivo que não está em mãos), o trecho vem com **instrução cirúrgica**: âncora exata de onde entra (texto imediatamente anterior/posterior), o que substitui, e o que conferir depois de inserir. *Exceção revogada pelo **D26** (2026-09-15): não há caso inviável — sem o arquivo íntegro em mãos, pede-se o arquivo.*
 
 **Por quê:** versão embutida transforma "qual está subida?" de arqueologia em leitura de uma linha — e o histórico no próprio arquivo mantém o *porquê* colado ao *quê*, que é o mesmo princípio deste documento. Entrega integral elimina a classe de erro mais cara observada até aqui (montagem manual com sobrescrita) e casa com a restrição operacional do D14: como o fluxo real é **baixar e re-subir**, o artefato tem de chegar pronto para substituir, não para ser costurado.
 
@@ -320,6 +320,25 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 
 **Mecanismo:** template do caderno **1.3 → 2.0** (bloco 1.1 novo, renumeração de 1.2/1.3/1.4, tipo de sessão, carimbo e controle de integridade com T#); `analise-desempenho` **2.1 → 2.2** (gatilho de registro sem questão, schema T#, cruzamento entre eixos, trava de consolidação do eixo conteúdo, fechamento com placar de teoria, regras inegociáveis 16 e 17); backlog (L6, C7 e C4 perdem a condição de gatilho por bateria).
 
+### D26 — Arquivo de edições é método, nunca entregável (emenda ao D15)
+
+**Contexto:** o item 3 do D15 decidiu a entrega sempre integral, mas deixou uma porta: *"quando o integral for inviável (artefato grande demais, ou edição em arquivo que não está em mãos), o trecho vem com instrução cirúrgica"*. Em 2026-09-11 as duas entregas de ateliê do dia saíram por essa porta, com a mesma justificativa — *grande demais*: `backlog-edicoes-1_29.md` e `D25-insercao-doc-decisoes-8_7.md`. As duas foram salvas na base **no lugar** dos documentos íntegros, e as versões completas anteriores saíram dela. Custo medido, não estimado: o backlog 1.28 sumiu da base e a 1.29 nunca foi aplicada; o documento de decisões ficou sem nenhuma cópia íntegra na base por quatro dias; uma sessão de estudo escolheu tarefa lendo o backlog 1.26, com um bloqueio que já tinha caído; uma sessão de ateliê (2026-09-15) parou sem conseguir inserir notas; e a reconstituição (backlog 1.30, decisões 8.7) exigiu recuperar texto literal de conversas antigas. A justificativa não se sustentava: os dois documentos, com 69 KB e 56 KB, saíram integrais na reconstituição sem nenhuma dificuldade.
+
+**Decisão:**
+
+1. **Edições são método interno de trabalho, nunca entregável.** Todo patch de artefato textual versionado segue o fluxo *gerar as edições → aplicar sobre a cópia íntegra → verificar → entregar só o integral*. A aplicação é mecânica, feita pelo script da skill operacional **`entrega-de-artefato`**: âncora com casamento único, e nada é gravado se uma âncora falhar.
+2. **As duas exceções do item 3 do D15 caem.** *Grande demais* deixa de ser caso: o script aplica as edições sobre o arquivo, então o tamanho do artefato nunca passa pela redação. *Arquivo que não está em mãos* passa a significar **pedir o arquivo** — nunca emitir trecho, nunca reconstruir de memória (fricção 8).
+3. **O nome é trava.** O arquivo entregue carrega o nome do artefato e a versão (`<artefato>-vX_Y.md`), e essa versão aparece dentro dele. Nome com *edicoes*, *insercao*, *patch* ou *delta* não sai para outputs.
+4. **Checagem de quem sobe.** Antes de subir arquivo na base: a primeira linha é o título do artefato, e a versão bate com a do nome. Se não for, não sobe.
+
+**Por quê:** o D15 já tinha identificado a classe de erro mais cara — montagem manual com sobrescrita — e a exceção era a porta por onde ela voltava, agora pior: o arquivo de edições *parece* o documento, então o erro deixa de ser uma montagem malfeita e passa a ser a substituição do documento inteiro por um fragmento dele. E o registro sozinho não segura: o D15 existia, estava na base e foi lido — e a exceção foi usada mesmo assim. Regra que precisa disparar **no momento da entrega** mora em skill com script, não em documento (D3), pela mesma razão que a entrega de `SKILL.md` mora na `empacotamento-de-skill`. O script também fecha a lacuna da fricção 18: protocolo de âncora para artefato do ateliê, que até aqui só existia para o caderno.
+
+**Fronteira:** não altera os itens 1 e 2 do D15 (versão embutida, numeração). Não cobre `SKILL.md`, que segue na `empacotamento-de-skill` — com a mesma exceção retirada dela — nem caderno e CSV de cartões, cuja escrita é da `analise-desempenho` e já sai integral. Não proíbe mostrar ao arquiteto o que mudou: o resumo do que mudou e por quê continua obrigatório **na resposta**; o que sai de circulação é o arquivo de edições como coisa entregue. O script garante mecânica — âncora, versão, tabela —, não semântica: contagens e referências cruzadas continuam em conferência manual.
+
+**Mecanismo:** skill `entrega-de-artefato` **1.0** (script `aplicar_edicoes.py`, validado reconstruindo esta própria série — a 8.7 saiu byte a byte igual à da base); `empacotamento-de-skill` **1.3 → 1.4** (retira a exceção do integral inviável); uma linha de ponteiro nas instruções do Project-mãe (D16); no backlog, fricção 18 fechada e o incidente registrado como fricção fechada.
+
+**Emenda ao D15:** onde o item 3 diz *"quando o integral for inviável… o trecho vem com instrução cirúrgica"*, leia-se: não há caso inviável; sem o arquivo íntegro em mãos, pede-se o arquivo.
+
 ## Glossário
  
 - **Ilusão de fluência:** sentir que aprendeu porque o texto era fácil de ler, sem reter de fato.
@@ -336,6 +355,7 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **Eixo conteúdo × eixo questão (D25):** as duas naturezas de indicador do estado do aluno — onde ele trava *entendendo* (travamentos T#, bloco 1.1) × onde ele erra *decidindo sob pressão* (entradas E#, bloco 1.2). Um não prevê o outro, e o cruzamento entre eles é o que revela dúvida adiada.
 - **Travamento (T#):** registro de ponto que o aluno não decodificou sozinho na leitura, com a carga (intrínseca × extrínseca) anotada. Três no mesmo ponto viram lacuna estrutural.
 - **Densidade de travamento:** travamentos por volume lido (por dezena de páginas), o indicador do eixo conteúdo. Número absoluto não se compara entre sessões de tamanhos diferentes.
+- **Arquivo de edições × artefato integral (D26):** lista de âncoras e trechos que descreve uma mudança × o documento completo já com a mudança aplicada. O primeiro é método interno de trabalho e nunca sai para outputs; só o segundo é entregável, e é o único que se sobe na base.
 - **Caderno da disciplina:** arquivo único do Project-filho, com duas seções — estado do aluno e dossiê de banca.
 - **Passe de promoção:** ritual periódico no Project-mãe em que regra amadurecida no caderno sobe para a skill e é podada do caderno.
 - **Backlog do ateliê:** arquivo vivo do Project-mãe (inventário + fila de trabalho + fricções). Este documento aponta para ele; não repete seu conteúdo.
