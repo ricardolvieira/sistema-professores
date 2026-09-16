@@ -1,0 +1,11 @@
+# Apostilas: material de terceiro, grande, regenerável a partir do PDF
+professores/*/apostila/
+
+# Ruído de sistema e editor
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Temporários
+*.tmp
+~$*
