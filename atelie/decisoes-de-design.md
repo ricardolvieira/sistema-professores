@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.8** · 2026-09-15 · artefato **estável** (D14/D17). Alterações desde a v8.7: **D26** — o arquivo de edições é método interno, nunca entregável: toda versão nova sai integral, aplicada por script sobre a cópia íntegra (skill `entrega-de-artefato`). Emenda o item 3 do **D15**, cuja exceção de "integral inviável" foi a porta do incidente de 2026-09-11.
+> **Versão 8.9** · 2026-09-16 · artefato **estável** (D14/D17). Alterações desde a v8.8: **D27** — o repositório Git privado entra como histórico e backup externo, não como fonte da verdade, e o nome dos artefatos passa a ser fixo, com a versão só dentro do documento; emenda os itens 3 e 4 do **D26** e fecha o gatilho que o D18 deixou escrito e o D23 deixou aberto. **D28** — a sessão escreve na base do Project: onde a ferramenta existir, cai o passo de re-upload; emenda o **D23** e a restrição operacional do **D14**.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -187,7 +187,7 @@ O documento de decisões **aponta** para o backlog e não repete seu conteúdo �
 
 É **artefato estável** (muda quando muda uma decisão), então mora junto deste documento, não do backlog. A tarefa de produzi-lo é o item B2 do backlog, dependente do test-drive (B1): o teste pode alterar o fluxo que o mapa vai desenhar.
 
-**Contra o GitLab, por ora:** Git resolveria backup externo e diff, mas nenhum dos dois é o problema atual, e introduziria uma **terceira cópia** do sistema (instalada, `outputs`, repositório) — reabrindo a ambiguidade de "qual é a verdadeira" que o D15 fechou. Só passa a valer se o repositório for declarado **fonte da verdade** e subir na conta virar *deploy*, não edição; e, mesmo assim, repositório burro (pastas + README-mapa, sem CI, sem automação, sem gestão de tarefas — o backlog continua onde se trabalha). Reavaliar depois de um ciclo, se persistir a falta de backup externo.
+**Contra o GitLab, por ora:** Git resolveria backup externo e diff, mas nenhum dos dois é o problema atual, e introduziria uma **terceira cópia** do sistema (instalada, `outputs`, repositório) — reabrindo a ambiguidade de "qual é a verdadeira" que o D15 fechou. Só passa a valer se o repositório for declarado **fonte da verdade** e subir na conta virar *deploy*, não edição; e, mesmo assim, repositório burro (pastas + README-mapa, sem CI, sem automação, sem gestão de tarefas — o backlog continua onde se trabalha). Reavaliar depois de um ciclo, se persistir a falta de backup externo. *Gatilho acionado pelo **D27** (2026-09-16): o Git entra como histórico e backup, não como fonte da verdade — as duas objeções deste parágrafo ficam de pé.*
 
 **Fronteira — anti-over-engineering:** a régua a partir daqui é que **cada melhoria de arquitetura se pague em sessões de estudo melhores**. Enquanto o sistema estava sendo construído, a proporção se justificava; agora não. Se uma semana passar sem resolução de questões, o sistema virou o hobby — e o objetivo é o concurso, não a elegância da arquitetura. O mapa entra porque *reduz* carga (legibilidade), não porque adiciona estrutura.
 
@@ -260,11 +260,11 @@ Técnica que só funciona colorida ou renderizada **é ilustração de ancoragem
 **Decisão:** revoga-se o D22. Volta a valer o modelo de **duas cópias**, que é o que o D10 e o D15 já descreviam:
 
 - **Cópia em execução** — skill na conta, arquivo na base do Project (mãe ou filho). É onde o artefato vive e é lido.
-- **Correia de transmissão** — `/mnt/user-data/outputs/`: onde a versão nova é gerada, para o arquiteto **baixar e re-subir** (D14/D15). Nunca é fonte, e agora também não há terceira camada acima dela.
+- **Correia de transmissão** — `/mnt/user-data/outputs/`: onde a versão nova é gerada, para o arquiteto **baixar e re-subir** (D14/D15). Nunca é fonte, e agora também não há terceira camada acima dela. *Emendado pelo **D28** (2026-09-16): onde a sessão escrever na base, a entrega termina lá e o re-upload cai.*
 
 Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópias: divergência não é resolvida por regra de precedência, e sim pela entrega integral do D15 — o artefato chega pronto para substituir o anterior, o que torna a divergência um evento e não um estado.
 
-**Backup do sistema fora do claude.ai continua sem solução declarada.** O gatilho escrito no D18 (reavaliar se persistir a falta de backup externo) segue **aberto** — o D22 tinha sido a resposta a ele, e a resposta caiu. Cópia manual da pasta para o Drive continua possível como hábito pessoal; o que deixa de existir é o *contrato* de que aquela cópia manda.
+**Backup do sistema fora do claude.ai continua sem solução declarada.** O gatilho escrito no D18 (reavaliar se persistir a falta de backup externo) segue **aberto** — o D22 tinha sido a resposta a ele, e a resposta caiu. Cópia manual da pasta para o Drive continua possível como hábito pessoal; o que deixa de existir é o *contrato* de que aquela cópia manda. *Gatilho fechado pelo **D27** (2026-09-16).*
 
 **Plugin de Produtividade — volta a ficar em aberto.** O D22 o havia resolvido "dentro de si"; revogado o D22, o item volta à fila (M7) sem destino definido. Registro do que se apurou, para não refazer a análise: o plugin é um conjunto de arquivos (`TASKS.md`, `dashboard.html`, `CLAUDE.md`, `memory/`) que vive no diretório de trabalho — em chat web esse diretório é efêmero, então o painel visual, o auto-save e a observação de mudança externa **não funcionam**; sobra um markdown de tarefas comum. O escopo, se um dia entrar, continua sendo o que o D22 delimitou e esta revogação preserva: **camada operacional apenas** (prazos, lembretes, rodar ferramenta) — a fila de arquitetura do sistema é exclusiva do `backlog-atelie.md`, sem segundo artefato vivo concorrente (D17).
 
@@ -328,8 +328,8 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 
 1. **Edições são método interno de trabalho, nunca entregável.** Todo patch de artefato textual versionado segue o fluxo *gerar as edições → aplicar sobre a cópia íntegra → verificar → entregar só o integral*. A aplicação é mecânica, feita pelo script da skill operacional **`entrega-de-artefato`**: âncora com casamento único, e nada é gravado se uma âncora falhar.
 2. **As duas exceções do item 3 do D15 caem.** *Grande demais* deixa de ser caso: o script aplica as edições sobre o arquivo, então o tamanho do artefato nunca passa pela redação. *Arquivo que não está em mãos* passa a significar **pedir o arquivo** — nunca emitir trecho, nunca reconstruir de memória (fricção 8).
-3. **O nome é trava.** O arquivo entregue carrega o nome do artefato e a versão (`<artefato>-vX_Y.md`), e essa versão aparece dentro dele. Nome com *edicoes*, *insercao*, *patch* ou *delta* não sai para outputs.
-4. **Checagem de quem sobe.** Antes de subir arquivo na base: a primeira linha é o título do artefato, e a versão bate com a do nome. Se não for, não sobe.
+3. **O nome é trava.** Nome com *edicoes*, *insercao*, *patch* ou *delta* não sai para outputs. *Emendado pelo **D27** (2026-09-16): o arquivo entregue carrega só o nome do artefato, fixo e sem versão; a versão aparece dentro dele.*
+4. **Checagem de quem sobe.** Antes de subir arquivo na base: a primeira linha é o título do artefato, e a versão declarada dentro dele é a que se acabou de gerar. Se não for, não sobe. *Emendado pelo **D27** (2026-09-16): a conferência era contra a versão do nome, que deixou de existir.*
 
 **Por quê:** o D15 já tinha identificado a classe de erro mais cara — montagem manual com sobrescrita — e a exceção era a porta por onde ela voltava, agora pior: o arquivo de edições *parece* o documento, então o erro deixa de ser uma montagem malfeita e passa a ser a substituição do documento inteiro por um fragmento dele. E o registro sozinho não segura: o D15 existia, estava na base e foi lido — e a exceção foi usada mesmo assim. Regra que precisa disparar **no momento da entrega** mora em skill com script, não em documento (D3), pela mesma razão que a entrega de `SKILL.md` mora na `empacotamento-de-skill`. O script também fecha a lacuna da fricção 18: protocolo de âncora para artefato do ateliê, que até aqui só existia para o caderno.
 
@@ -338,6 +338,45 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 **Mecanismo:** skill `entrega-de-artefato` **1.0** (script `aplicar_edicoes.py`, validado reconstruindo esta própria série — a 8.7 saiu byte a byte igual à da base); `empacotamento-de-skill` **1.3 → 1.4** (retira a exceção do integral inviável); uma linha de ponteiro nas instruções do Project-mãe (D16); no backlog, fricção 18 fechada e o incidente registrado como fricção fechada.
 
 **Emenda ao D15:** onde o item 3 diz *"quando o integral for inviável… o trecho vem com instrução cirúrgica"*, leia-se: não há caso inviável; sem o arquivo íntegro em mãos, pede-se o arquivo.
+
+### D27 — Repositório Git como histórico e backup externo; nome fixo (emenda ao D18, ao D23 e ao D26)
+
+**Contexto:** em 2026-09-16 foi preciso recuperar o backlog e o documento de decisões, e as versões anteriores não estavam em lugar nenhum. A base do Project guarda só o que está subido, e o nome com versão (`-v8_8.md`) faz de cada versão um **arquivo novo**: o anterior só sai de cena quando alguém o retira à mão, e retirado, some. O histórico de versões do Google Drive não cobre o caso — ele registra sobrescrita do *mesmo* arquivo, e ainda assim expira em 30 dias ou 100 revisões, salvo marcação manual de "Manter para sempre". O D18 recusou o Git "por ora" e deixou o gatilho de reabertura escrito (reavaliar se persistir a falta de backup externo); o D22 foi a resposta a esse gatilho, o D23 a revogou e registrou o gatilho como **aberto**. Um ciclo depois, a falta cobrou o preço previsto.
+
+**Decisão:**
+
+1. **Repositório Git privado** — local em `C:\repos\atelie`, espelhado em repositório privado no GitHub. Guarda os artefatos do ateliê e dos Projects-filhos.
+2. **O repositório não é fonte da verdade.** É **histórico e backup**. A cópia em execução (skill na conta, arquivo na base do Project) continua sendo onde o artefato vive e é lido, como o D23 fixou. O commit registra o que foi entregue; não é um terceiro lugar a manter em dia.
+3. **Repositório burro**, como o próprio D18 condicionou: pastas e arquivos, sem CI, sem automação, sem gestão de tarefas. A fila de trabalho continua exclusivamente no `backlog-atelie.md` (D17).
+4. **Fora do drive sincronizado.** O repositório não mora em `H:\Meu Drive`: a sincronização do Google Drive mexe na pasta `.git` durante a operação do Git e pode corrompê-la. Quem faz o papel de backup externo é o espelho remoto.
+5. **Nome fixo, versão só dentro.** Arquivo em minúsculas, hífen entre palavras, sem acento e **sem versão no nome** (`decisoes-de-design.md`, `backlog-atelie.md`). A versão aparece na linha de versão do documento (D15), na mensagem do commit e na tag — sempre com **ponto** (`8.9`), nunca underline. O underline existia só para não pôr ponto dentro de nome de arquivo; sem versão no nome, o motivo desapareceu.
+6. **O diff antes do commit é verificação obrigatória**, não conferência opcional. É o passo que teria denunciado o incidente de 2026-09-11 antes de ele chegar à base: arquivo de edições salvo no lugar do documento aparece no `git diff` como centenas de linhas apagadas.
+
+**Por quê:** o D18 recusou o Git porque o problema de então era **legibilidade**, não versionamento nem backup — e porque um repositório declarado fonte da verdade criaria uma terceira cópia, reabrindo a ambiguidade de "qual é a verdadeira". As duas objeções continuam de pé, e é exatamente isso que os itens 2 e 3 preservam: o repositório entra **abaixo** da cópia em execução, como registro, não acima dela, como fonte. O que mudou foi o problema — não é mais legibilidade, é perda medida de versão anterior, com recuperação por arqueologia de conversa. E o nome fixo ataca a mesma classe de erro do D26 pelo outro lado: com versão no nome, a versão nova é um arquivo *diferente* e alguém precisa retirar o antigo à mão; com nome fixo, ela cai **sobre** o anterior, e o momento em que dois arquivos parecidos convivem na base deixa de existir.
+
+**Fronteira — a régua do D18 continua valendo:** isto se paga porque uma perda já aconteceu e custou uma sessão de recuperação, não porque repositório é elegante. Nada de CI, hooks, submódulos, branches de feature ou gestão de tarefas no Git. Um `commit` e um `push` por entrega; se o fluxo crescer além disso, virou hobby.
+
+**Emenda ao D26:** onde o item 3 diz que o arquivo entregue *"carrega o nome do artefato e a versão (`<artefato>-vX_Y.md`)"*, leia-se: carrega **só o nome do artefato**, fixo, e a versão aparece **dentro** dele. A outra metade do item 3 segue intacta — nome com *edicoes*, *insercao*, *patch* ou *delta* não sai. E onde o item 4 manda conferir se *"a versão bate com a do nome"*, leia-se: conferir se a versão declarada no documento é a que se acabou de gerar.
+
+**Mecanismo:** skill `entrega-de-artefato` **1.0 → 1.1** (comando de saída passa a usar `--versao X.Y`; linha da tabela de travas e fecho obrigatório reescritos para nome fixo). O script `aplicar_edicoes.py` **não muda** — a trava 3 já aceitava `--versao` como alternativa à versão no nome. Renomeação dos artefatos na base e no repositório; no backlog, o item de renomeação e a fricção do incidente de recuperação.
+
+### D28 — A sessão escreve na base do Project; cai o re-upload (emenda ao D23 e ao D14)
+
+**Contexto:** o D14 registrou como **restrição operacional assumida** que a cópia em `/mnt/project/` é somente-leitura e que o fluxo real é o arquiteto **baixar e re-subir**. O D23 foi além e usou a mesma premissa como argumento para revogar o D22: *"mesmo em Cowork, o deploy continua manual, porque a sessão não escreve na base de conhecimento de um Project — some o passo de baixar, não o de subir"*. Em 2026-09-16 a premissa foi testada e é falsa nesta superfície. O teste foi explícito: gravação, segunda gravação no mesmo caminho, leitura de conferência e listagem da base. O documento foi **substituído no lugar**, sem duplicata.
+
+**Decisão:** onde a sessão dispuser da ferramenta de escrita na base, a entrega termina **na base**, não em `outputs`. O passo de re-upload desaparece; o de baixar permanece, porque o arquivo ainda precisa entrar no repositório do D27.
+
+**A trava — conferência pós-escrita, herdada do D14:** gravar não encerra a entrega. Depois de escrever, **ler de volta da base** e conferir três coisas: a primeira linha é o título do artefato, a versão declarada é a nova, e a listagem da base mostra **um** documento naquele caminho. Sem essa leitura, a escrita direta é pior que o re-upload manual, porque tira o arquiteto do circuito sem pôr nada no lugar.
+
+**Fronteira:**
+
+- **Só a base de Project.** Skill continua subindo na conta à mão (D10), e o empacotamento segue na `empacotamento-de-skill`.
+- **Só onde a ferramenta existe.** Esta sessão a tem; **o chat web, onde rodam o ateliê e todos os Projects-filhos (D23), ainda não foi verificado**. Enquanto não for, baixar-e-re-subir continua sendo o padrão dos Projects-filhos e o protocolo do caderno (D14) não muda. Verificar é item de backlog, não suposição.
+- **Não reabre o D22.** Não há pasta local como fonte fria nem hierarquia de desempate entre cópias. O que muda é só quem executa o último passo.
+
+**Emenda ao D23:** onde o item (a) do Contexto diz que *"a sessão não escreve na base de conhecimento de um Project"*, leia-se: não escrevia na superfície examinada em 2026-08-11; escreve nesta. O resto do D23 fica de pé — inclusive a revogação do D22, que se sustentava também nos itens (b) e (c).
+
+**Emenda ao D14:** onde a *restrição operacional assumida* manda gerar em `outputs` para o arquiteto baixar e re-subir, leia-se: re-subir só onde a sessão não escrever na base.
 
 ## Glossário
  
@@ -364,6 +403,9 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **Mapa do sistema:** artefato estável de uma página que descreve o conjunto (camadas, ciclo de vida de um registro, quem escreve o quê, rotinas) + diagrama. Responde ao desconforto de legibilidade, não de orquestração (D18).
 - **Fonte primária × fallback:** o material original do curso é sempre a fonte de conversão da apostila; o reduzido nunca alimenta a base do Project. PDF bruto é aceito como fallback temporário quando a conversão não aconteceu a tempo — nunca via permanente (D21).
 - **Fonte fria × cópia em execução:** distinção introduzida pelo D22 e **revogada pelo D23**. Não há mais camada de pasta local nem hierarquia de desempate entre cópias: o artefato vive na cópia em execução (skill na conta, arquivo na base do Project) e o `outputs` é só correia de transmissão para baixar e re-subir (D14/D15).
+- **Nome fixo × nome versionado (D27):** arquivo cujo nome nunca muda, com a versão só na linha de versão do documento, no commit e na tag × arquivo cujo nome carrega a versão (`-v8_8.md`), em que cada versão é um arquivo novo e o anterior precisa ser retirado à mão. O segundo é a metade do incidente de 2026-09-11 que o D26 não tinha coberto.
+- **Repositório de histórico × fonte da verdade (D27):** o Git guarda o que já foi entregue, **abaixo** da cópia em execução × um repositório que manda sobre as demais cópias, que é o que o D18 recusou e o D27 continua recusando.
+- **Escrita direta na base (D28):** a sessão grava o artefato na base do Project e lê de volta para conferir, em vez de gerar em `outputs` para o arquiteto re-subir. Vale onde a ferramenta existir; no chat web, ainda não verificado.
  
 ## Onde está o resto
 
