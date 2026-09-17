@@ -4,7 +4,7 @@
  
 > Arquivo **vivo** do Project-filho (D14). Três seções, três naturezas: o que **eu** erro (estado do aluno), o que **a banca** faz (dossiê de banca) e onde **a fonte** erra (errata). Não é material de estudo nem resumo de matéria — é registro derivado das questões que eu já enfrentei.
 >
-> **Fluxo:** o professor propõe a entrada → eu autorizo → ele gera a versão editada em `outputs` → **eu baixo e re-subo aqui**. Sem o re-upload, o registro se perde.
+> **Fluxo:** o professor propõe a entrada → eu autorizo → ele grava. **Como** ele grava — snapshot de abertura antes da primeira escrita da sessão, gravação na base deste Project (D28) ou, onde a ferramenta não existir, arquivo em `outputs` para eu subir à mão, releitura de conferência sempre, e os três arquivos vivos entregues como **backup** no fechamento — está na `analise-desempenho`, e só lá (D16).
 >
 > *Instanciado do **template versão 1.2** · 2026-08-11. O caderno preenchido versiona por **data de atualização + contagens** — a primeira linha acima é o carimbo que vale; a versão do template é só a linhagem de onde este arquivo saiu.*
  
