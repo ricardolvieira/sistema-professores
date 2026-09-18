@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.10** · 2026-09-16 · artefato **estável** (D14/D17). Alterações desde a v8.9: **D27** — corrigido o caminho do repositório (`D:\dev\pessoal\sistema-professores`, pasta local não sincronizada, confirmada pelo arquiteto) e explicitado que é **um único repositório para o sistema inteiro** — ateliê e todos os Projects-filhos —, nunca um por professor; acrescenta a convenção de espelhamento de caminho entre repositório e base.
+> **Versão 8.11** · 2026-09-18 · artefato **estável** (D14/D17). Alterações desde a v8.10: **emenda ao D28** — o chat web foi verificado em 2026-09-17 e deixa de ser a fronteira aberta da decisão (M16 fechado); entram os **dois regimes de escrita** (Project-mãe × Project-filho), cada um com o seu ponto de restauração, e o registro de que o risco trocou de lugar — sai a fricção do re-upload, entra a **regravação cega**. Verbete do glossário atualizado junto.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -371,8 +371,21 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 **Fronteira:**
 
 - **Só a base de Project.** Skill continua subindo na conta à mão (D10), e o empacotamento segue na `empacotamento-de-skill`.
-- **Só onde a ferramenta existe.** Esta sessão a tem; **o chat web, onde rodam o ateliê e todos os Projects-filhos (D23), ainda não foi verificado**. Enquanto não for, baixar-e-re-subir continua sendo o padrão dos Projects-filhos e o protocolo do caderno (D14) não muda. Verificar é item de backlog, não suposição.
+- **Só onde a ferramenta existe** — e agora existe nas duas superfícies. A sessão de 2026-09-16 a verificou em Claude Code; a de **2026-09-17 a verificou no chat web**, onde rodam o ateliê e todos os Projects-filhos (D23), em ciclo completo: gravação, regravação no mesmo caminho (substituição no lugar), releitura de conferência, listagem mostrando **um** documento no caminho e exclusão do arquivo de teste. **Escopo honesto do teste: rodou no Project-mãe.** A superfície é a mesma nos filhos, mas isso se confirma no primeiro toque real de um caderno, não por dedução. **O fallback continua escrito:** sessão fora de Project, ferramenta ausente ou gravação recusada → `outputs` e re-upload, sem mudança.
 - **Não reabre o D22.** Não há pasta local como fonte fria nem hierarquia de desempate entre cópias. O que muda é só quem executa o último passo.
+
+**Dois regimes de escrita, porque o que se perde num erro é diferente.** No **Project-mãe** a escrita é rara, o artefato é versionado, e o que um erro destrói é uma versão inteira mais o elo do histórico. No **Project-filho** a escrita é contínua, o artefato é vivo, e o que se perde é a sessão. Um regime só, com exceções, esconderia essa diferença.
+
+| | **Project-mãe** | **Project-filho** |
+|---|---|---|
+| Ponto de restauração | cópia da **versão anterior**, entregue **antes** de gravar | **snapshot de abertura** — caderno lido e entregue antes da primeira escrita da sessão |
+| Durante | uma ou duas escritas, ao final do passe | gravação por lote, com releitura **da base** e diff |
+| Ao final | a versão nova vai ao repositório (D27) | os **três** arquivos vivos do D24 entregues como **backup** |
+| Onde está escrito | `entrega-de-artefato` 1.3 — passo 5 e quarta proibição | `analise-desempenho` 2.3 — regras 18 e 19 |
+
+**O risco trocou de lugar, não desapareceu.** Sai a fricção do re-upload — o elo humano que a fricção 34 cobrou. Entra a **regravação cega**: como a gravação é do documento **inteiro**, uma escrita feita a partir de conteúdo reconstruído substitui o arquivo sem que nada acuse. A defesa é ler o arquivo da base **na mesma operação** em que se grava — regra que deixou de ser cuidado de âncora (fricção 15) e virou a trava principal do regime.
+
+**Os dois papéis da cópia anterior, no regime do mãe.** Como **ponto de restauração** ela vale sempre e não depende de repositório nenhum. Como **entrada de histórico** (D27) é transitória: em regime estacionário quem entra no repositório é a versão **nova**, no passe em que nasce, e a anterior já está lá desde o passe dela. Enquanto o **M17** não tiver populado o repositório, a anterior segue junto para fechar o rastro para trás.
 
 **Emenda ao D23:** onde o item (a) do Contexto diz que *"a sessão não escreve na base de conhecimento de um Project"*, leia-se: não escrevia na superfície examinada em 2026-08-11; escreve nesta. O resto do D23 fica de pé — inclusive a revogação do D22, que se sustentava também nos itens (b) e (c).
 
@@ -405,7 +418,9 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **Fonte fria × cópia em execução:** distinção introduzida pelo D22 e **revogada pelo D23**. Não há mais camada de pasta local nem hierarquia de desempate entre cópias: o artefato vive na cópia em execução (skill na conta, arquivo na base do Project) e o `outputs` é só correia de transmissão para baixar e re-subir (D14/D15).
 - **Nome fixo × nome versionado (D27):** arquivo cujo nome nunca muda, com a versão só na linha de versão do documento, no commit e na tag × arquivo cujo nome carrega a versão (`-v8_8.md`), em que cada versão é um arquivo novo e o anterior precisa ser retirado à mão. O segundo é a metade do incidente de 2026-09-11 que o D26 não tinha coberto.
 - **Repositório de histórico × fonte da verdade (D27):** o Git guarda o que já foi entregue, **abaixo** da cópia em execução × um repositório que manda sobre as demais cópias, que é o que o D18 recusou e o D27 continua recusando.
-- **Escrita direta na base (D28):** a sessão grava o artefato na base do Project e lê de volta para conferir, em vez de gerar em `outputs` para o arquiteto re-subir. Vale onde a ferramenta existir; no chat web, ainda não verificado.
+- **Escrita direta na base (D28):** a sessão grava o artefato na base do Project e lê de volta para conferir, em vez de gerar em `outputs` para o arquiteto re-subir. Verificada nas duas superfícies — Claude Code (2026-09-16) e chat web (2026-09-17), esta no **Project-mãe**. Vale onde a ferramenta existir; sem ela, `outputs` e re-upload.
+- **Dois regimes de escrita (D28):** no **Project-mãe** a escrita é rara e o ponto de restauração é a **versão anterior**, entregue antes de gravar; no **Project-filho** a escrita é contínua e o ponto de restauração é o **snapshot de abertura** do caderno. O que difere não é a ferramenta, é o que um erro destrói — uma versão inteira mais o elo do histórico × a sessão.
+- **Regravação cega (D28):** gravar o documento **inteiro** a partir de conteúdo reconstruído, sem ter lido o arquivo da base na mesma operação. É o risco que a escrita direta põe no lugar da fricção do re-upload — e a razão de a releitura ter deixado de ser cuidado de âncora para virar a trava principal.
  
 ## Onde está o resto
 
