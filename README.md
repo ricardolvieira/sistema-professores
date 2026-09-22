@@ -21,6 +21,9 @@ O caminho aqui espelha o caminho na base, para o diff ser comparável.
   sempre com ponto (`8.9`).
 - Um `commit` e um `push` por entrega. Sem CI, sem hooks, sem branches de feature.
 - `git diff` antes de todo commit é verificação obrigatória, não opcional.
+- Fim de linha: **LF** em todo arquivo de texto, imposto pelo `.gitattributes`
+  (`* text=auto eol=lf`). Arquivo que chegar em CRLF é convertido no `git add`,
+  para o diff mostrar só mudança de conteúdo.
 
 ## Apostilas
 

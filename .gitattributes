@@ -1,0 +1,10 @@
+# Fim de linha: todo arquivo de texto é guardado em LF, o formato que o Claude gera
+# (o mesmo da cópia em execução na base do Project). Arquivo em CRLF é convertido no git add.
+* text=auto eol=lf
+
+# Binários: nunca converter.
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
+*.skill binary
