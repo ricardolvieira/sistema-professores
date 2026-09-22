@@ -1,6 +1,6 @@
 # Decisões de Design — Sistema de Professores de Estudo
 
-> **Versão 8.11** · 2026-09-18 · artefato **estável** (D14/D17). Alterações desde a v8.10: **emenda ao D28** — o chat web foi verificado em 2026-09-17 e deixa de ser a fronteira aberta da decisão (M16 fechado); entram os **dois regimes de escrita** (Project-mãe × Project-filho), cada um com o seu ponto de restauração, e o registro de que o risco trocou de lugar — sai a fricção do re-upload, entra a **regravação cega**. Verbete do glossário atualizado junto.
+> **Versão 8.12** · 2026-09-22 · artefato **estável** (D14/D17). Alterações desde a v8.11: **D29 novo** — fim de linha **LF** no repositório, imposto pelo `.gitattributes`, para o `git diff` obrigatório do D27 mostrar só mudança de texto. Verbete do glossário junto.
  
 > Registro do **que** foi decidido e **por quê**. Serve para o meta-trabalho (melhorar skills e prompts) não virar arqueologia de conversa. Quando bater a dúvida "por que é assim?", a resposta está aqui.
  
@@ -391,6 +391,28 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 
 **Emenda ao D14:** onde a *restrição operacional assumida* manda gerar em `outputs` para o arquiteto baixar e re-subir, leia-se: re-subir só onde a sessão não escrever na base.
 
+### D29 — Fim de linha LF no repositório, imposto pelo `.gitattributes` (complemento ao D27)
+
+**Contexto:** no commit da Tarefa 07 da Meta 2 (2026-09-22), o `caderno-direito-tributario.md` apareceu no `git diff` com **358 linhas** alteradas; a mudança real era de ~118. O resto era só fim de linha: a versão anterior tinha sido gravada em **CRLF** (`\r\n`, convenção do Windows) e a nova chegou em **LF** (`\n`, convenção de Linux, macOS e web — a que o Claude gera). No mesmo commit, a `notas-de-melhoria.md` entrou em CRLF. O formato de cada arquivo dependia do caminho que ele fez até a pasta, e ninguém o escolhia. Para o Git, `linha\r\n` e `linha\n` são linhas diferentes: basta um arquivo trocar de convenção para o diff marcá-lo inteiro.
+
+**Decisão:** todo arquivo de texto do repositório é guardado em **LF**, e quem impõe é o **`.gitattributes`** na raiz (`* text=auto eol=lf`, com os binários — PDF, imagem, zip, `.skill` — marcados para nunca converter). Arquivo que chegar em CRLF é convertido no `git add`, sem ação de ninguém. A normalização do que já estava versionado foi feita uma vez, em commit próprio (`3ce02e0`), separado do commit de conteúdo.
+
+**Por quê:** o D27 (item 6) fez do `git diff` a verificação obrigatória antes de todo commit — o passo que denuncia arquivo salvo no lugar errado. Diff poluído por fim de linha cega exatamente essa verificação: a mudança de conteúdo se esconde no meio de centenas de linhas que só mudaram de byte invisível, e um fragmento salvo no lugar do documento (o incidente do D26) passaria despercebido. E LF é o formato da **cópia em execução** — o que o Claude grava na base do Project —, então o repositório passa a espelhar a fonte também no byte, que é o princípio do caminho espelhado do D27 (item 5).
+
+**Alternativas recusadas:**
+
+- **`core.autocrlf` na máquina do arquiteto** — é configuração da máquina, não do repositório. Não vale no ambiente remoto que também opera a pasta, que foi justamente onde o problema apareceu.
+- **`eol=crlf`** — nativo do Windows, mas contra a fonte: todo arquivo vindo do Claude seria convertido, e o repositório deixaria de ser byte a byte igual à base.
+- **`git diff --ignore-cr-at-eol`** — esconde o ruído na hora de olhar; a mistura continua no histórico e volta em qualquer diff feito sem a opção.
+
+**Fronteira:**
+
+- **Não é edição de conteúdo.** A regra do repositório — cópia fiel, não corrigir formatação — segue intacta: a normalização muda o byte de fim de linha, não o texto, e deixa o repositório **mais** fiel à cópia em execução, não menos. Ninguém converte arquivo à mão.
+- **Só o repositório.** A base do Project e as skills na conta não são tocadas.
+- **Não é automação.** O `.gitattributes` é configuração declarativa do próprio Git, não hook nem CI — a régua do D18 e o repositório burro do D27 ficam de pé.
+
+**Mecanismo:** `.gitattributes` na raiz do repositório; `README.md` e `CLAUDE.md` do repositório com a convenção de fim de linha.
+
 ## Glossário
  
 - **Ilusão de fluência:** sentir que aprendeu porque o texto era fácil de ler, sem reter de fato.
@@ -421,6 +443,7 @@ Não existe mais "fonte da verdade fria" nem hierarquia de desempate entre cópi
 - **Escrita direta na base (D28):** a sessão grava o artefato na base do Project e lê de volta para conferir, em vez de gerar em `outputs` para o arquiteto re-subir. Verificada nas duas superfícies — Claude Code (2026-09-16) e chat web (2026-09-17), esta no **Project-mãe**. Vale onde a ferramenta existir; sem ela, `outputs` e re-upload.
 - **Dois regimes de escrita (D28):** no **Project-mãe** a escrita é rara e o ponto de restauração é a **versão anterior**, entregue antes de gravar; no **Project-filho** a escrita é contínua e o ponto de restauração é o **snapshot de abertura** do caderno. O que difere não é a ferramenta, é o que um erro destrói — uma versão inteira mais o elo do histórico × a sessão.
 - **Regravação cega (D28):** gravar o documento **inteiro** a partir de conteúdo reconstruído, sem ter lido o arquivo da base na mesma operação. É o risco que a escrita direta põe no lugar da fricção do re-upload — e a razão de a releitura ter deixado de ser cuidado de âncora para virar a trava principal.
+- **Fim de linha LF × CRLF (D29):** os caracteres invisíveis que marcam o fim de cada linha — `\n` (Linux, macOS, web; o que o Claude gera) × `\r\n` (Windows). Idênticos na tela, diferentes para o Git. No repositório, sempre LF, imposto pelo `.gitattributes`.
  
 ## Onde está o resto
 

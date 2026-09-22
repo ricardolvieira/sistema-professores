@@ -18,6 +18,8 @@ registrada, **aponte isso explicitamente em vez de seguir calado**.
 - O caminho aqui **espelha** o caminho na base do Project, para o `git diff` ser
   comparável direto contra o que está subido. Não invente pasta para artefato que já tem
   lugar.
+- Fim de linha **LF** em todo arquivo de texto, imposto pelo `.gitattributes` (D29).
+  Não converta arquivo à mão: o Git converte no `git add`.
 
 ## Layout
 
@@ -45,6 +47,12 @@ desatualizado é pior que ausente, porque é lido como verdade.
   histórico.
 - Repositório burro, por decisão: sem CI, sem workflow do GitHub, sem submódulo, sem
   branch além da `main`.
+- **Sessão remota (pasta conectada ao Claude):** o ambiente não tem credencial do GitHub
+  nem identidade Git. Faça o commit passando a identidade só no comando
+  (`git -c user.name="Ricardo Lima Vieira" -c user.email="riclimavieira@gmail.com" commit`),
+  sem gravar configuração, e deixe o `git push` para o Ricardo, no terminal do VS Code.
+  Se o Git falhar com `unable to unlink` ou `index.lock`, falta permissão de exclusão na
+  pasta: peça a permissão antes de insistir e remova o `index.lock` que a tentativa deixou.
 
 ## O que não fazer
 
