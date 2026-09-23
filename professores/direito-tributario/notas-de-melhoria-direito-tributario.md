@@ -4,4 +4,3 @@
 
 | # | Data | Onde (skill/etapa) | O que aconteceu | Efeito | Sugestão |
 |---|---|---|---|---|---|
-| N1 | 2026-09-22 | `analise-desempenho` — protocolo de gravação, snapshot de abertura | No fechamento de sessão, o snapshot do caderno foi enviado na mesma resposta da gravação na base, segundos antes dela. O envio constou como entregue, mas o arquivo não chegou ao aluno | O aluno ficou sem ponto de restauração no momento da gravação. Mesmo que o arquivo tivesse chegado, não havia como baixá-lo e conferir antes da escrita. O snapshot só foi recebido no reenvio, depois da gravação. Também faltou, no mesmo fechamento, a entrega do caderno e do CSV como backup (item 6 do fechamento); feita depois, a pedido do aluno | Tornar a primeira gravação da sessão dependente da **confirmação de recebimento** do snapshot pelo aluno: entregar, esperar o "recebi" e só então gravar. No fechamento, conferir a entrega dos arquivos de backup antes de declarar a sessão encerrada |
