@@ -1,6 +1,6 @@
 # Caderno de Raciocínio Lógico
 
-> **Última atualização:** 2026-10-12 · **Travamentos:** T0 · **Erros:** E32 · **Linhas no dossiê:** 7 · **Erratas:** F3 · **Cartões:** 13 (em `flashcards-raciocinio-logico.csv`) · **Sessões:** 0 teoria / 3 bateria / 0 mista
+> **Última atualização:** 2026-10-12 · **Travamentos:** T0 · **Erros:** E32 · **Linhas no dossiê:** 7 (2.1) + 1 regra consolidada (2.2) · **Erratas:** F3 · **Cartões:** 13 (em `flashcards-raciocinio-logico.csv`) · **Sessões:** 0 teoria / 4 bateria / 0 mista
 
 > Arquivo **vivo** do Project-filho (D14/D25). Quatro naturezas: onde **eu travo** estudando (eixo conteúdo), o que **eu erro** resolvendo (eixo questão), o que **a banca** faz (dossiê) e onde **a fonte** erra (errata).
 >
@@ -77,7 +77,7 @@
 | Lacuna | Origem (T# / E#) | Status |
 |---|---|---|
 | Método de hipóteses em verdades e mentiras: montar os crachás pela regra do enunciado e testar cada fala contra eles, em vez de aceitá-la como verdadeira | E1, E2, E3, E4, E7, E8, E20, E21 | aberta |
-| Rosa dos ventos: leste à direita, oeste à esquerda (esquecimento declarado). Alerta de técnica: "posição" = direção + distância (E9, E11, E13) | E9, E10, E11, E13 · reincidência sem custo em CEBRASPE/INPI/2024 (2026-10-08): L à esquerda, mantida de forma coerente | aberta |
+| Rosa dos ventos: leste à direita, oeste à esquerda (esquecimento declarado). Alerta de técnica: "posição" = direção + distância (E9, E11, E13) | E9, E10, E11, E13 · reincidência sem custo no E25 (CEBRASPE/INPI/2024, 2026-10-08): L à esquerda, mantida de forma coerente | aberta |
 | Ponto 0 nas contagens: o dia ou a posição de partida é o 0; "daqui a N dias" e "N posições atrás" são a diferença, não a quantidade de elementos no meio (entre os dois ficam N − 1) | E14, E29, E30 · relacionada, de técnica: E28 (o 0 escorregou na execução) | aberta |
 
 **Lacuna com mais de um nome registra os dois desde a abertura.** Quando o mesmo conteúdo aparece na literatura sob nomenclaturas diferentes — edição antiga × edição nova, tradução × original, autor × autor —, a lacuna se escreve com as duas formas (`nome A / nome B`), não só com a que apareceu primeiro. Motivo: lacuna fechada sob um nome continua aberta sob o outro, e a banca cobra pelo que ela quiser. Descobrir o segundo nome só quando ele custa uma questão é caro e evitável — foi assim que uma lacuna dada por estudada reapareceu como erro novo, com outro rótulo.
@@ -87,6 +87,7 @@
 | Data | Tipo | Volume | Resultado | Padrão / tema dominante | Leitura de evolução |
 |---|---|---|---|---|---|
 | 2026-09-29/30 | bateria | 30 questões (LS · Meta 2 · T13, Q1–Q30) | 9 acertos · 13 erros · 8 qualificados | Conteúdo dominante · verdades e mentiras (0 limpas em 10: fala aceita como verdadeira e reflexo do operador) e orientação espacial (rosa espelhada: 4 acertos por compensação e 1 com dúvida de referencial) | Temporal evoluiu dentro da lista (Q26 errada → Q29/Q30 certas pelo método); raciocínio crítico é o melhor bloco (6 limpas em 10), com correlação × causalidade a observar (E16, E19); técnica começa a aparecer (distância omitida, transcrição) |
+| 2026-10-06 | bateria | 1 questão (Meta 2 · T2 · Atividade 1, opção 2: caderno TEC, Q1 de 14) | 0 acertos · 1 erro · 0 qualificados | Conteúdo 1 (E22) · temporal · FGV | Sessão interrompida na 1ª questão: o caderno TEC trazia assunto ainda não estudado, e a atividade seguiu pela opção 1 (lista do Estratégia, Aula 08, a partir da p. 223) em 10-07. Erro de janela de encontro só para frente no tempo (E22) |
 | 2026-10-07/09 | bateria | 13 questões (Aula 08 · Meta 2 · T2, opção 1 · Atividade 1: Temporal CEBRASPE Q1–Q8 + Espacial CEBRASPE Q1–Q5) | 9 acertos · 4 erros · 0 qualificados | Conteúdo 3 (E23, E25, E26) · técnica 1 (E24) · temporal 6/8, espacial 3/5 · todas CEBRASPE | Temporal: regra do bissexto (E23) aplicada certo na Q3; ciclo dos trens descoberto na própria bateria (lista → ciclo de 4 h → posição no ciclo). Espacial: rosa ainda espelhada, sem custo; erros novos de convenção (colateral = diagonal, E25) e de possível × obrigatório (E26) |
 | 2026-10-10/12 | bateria | 12 questões (Aula 08 · Meta 2 · T2 · Atividade 2: opção 1 FGV pág. 242–243, Q1–Q5 + opção 2 FGV pág. 249–251, Q1–Q7) | 6 acertos · 6 erros · 0 qualificados | Conteúdo 5 (E27, E29, E30, E31, E32) · técnica 1 (E28) · temporal 2/5, espacial 4/7 · todas FGV | O ponto 0 virou lacuna (E14, E29, E30): mesmo erro em dias e em posições. Mecanismo novo em dupla: proteção de vizinhos em máximo/mínimo (E31, E32), com "parei na primeira configuração válida" (E26, E32). FGV abaixo de CEBRASPE (6/12 × 9/13), com os erros concentrados nos distratores de passo esquecido (regra 2.2) |
 
