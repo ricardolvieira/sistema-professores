@@ -9,8 +9,8 @@ Project. Aqui fica o registro do que já foi entregue.
 | Pasta | O que guarda | Cópia em execução |
 |---|---|---|
 | `atelie/` | decisões, backlog, mapa, template do caderno, instruções | base do Project "Mãe dos professores" |
-| `skills/<nome>/` | `SKILL.md` e `scripts/` de cada skill | skill instalada na conta |
-| `professores/<disciplina>/` | prompt de estado, caderno, flashcards, notas de melhoria | base do Project-filho |
+| `skills/<nome>/` | `SKILL.md` e `scripts/` de cada skill, mais o pacote `<nome>.skill` da versão entregue | skill instalada na conta |
+| `professores/<disciplina>/` | prompt de estado, caderno, flashcards, notas de melhoria; handoffs de sessão (`handoff-<assunto>.md`), que não sobem para a base | base do Project-filho (exceto handoffs, colados no chat) |
 
 O caminho aqui espelha o caminho na base, para o diff ser comparável.
 

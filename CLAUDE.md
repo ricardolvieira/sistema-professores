@@ -26,8 +26,8 @@ registrada, **aponte isso explicitamente em vez de seguir calado**.
 | Pasta | O que guarda |
 |---|---|
 | `atelie/` | decisões, backlog, mapa do sistema, template do caderno |
-| `skills/<nome>/` | `SKILL.md` e `scripts/` de cada skill |
-| `professores/<disciplina>/` | prompt de estado, caderno, flashcards, notas de melhoria |
+| `skills/<nome>/` | `SKILL.md` e `scripts/` de cada skill, mais o pacote `<nome>.skill` da versão entregue |
+| `professores/<disciplina>/` | prompt de estado, caderno, flashcards, notas de melhoria; handoffs de sessão (`handoff-<assunto>.md`), que não sobem para a base |
 
 `professores/*/apostila/` é ignorada pelo Git: material de terceiro, grande e regenerável
 a partir do PDF pela skill `conversao-apostila`.
