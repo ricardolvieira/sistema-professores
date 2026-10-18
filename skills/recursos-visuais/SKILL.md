@@ -5,7 +5,7 @@ description: "Camada compartilhada de recursos visuais para os professores de co
 
 # Recursos visuais — camada compartilhada
 
-> **Versão 1.3** · 2026-08-27 · artefato estável (D14/D20/**D24**)
+> **Versão 1.4** · 2026-10-18 · artefato estável (D14/D20/D24)
 
 Use junto com `metodo-professor` e a skill da disciplina. Padroniza os visuais de todos os professores: mesma identidade, mesmas ferramentas. **A prioridade é o aprendizado.** O visual existe para ancorar o ponto que está sendo explicado ou comentado — e, quando ancora, ele é bem-vindo com folga, não com parcimônia. O que ele **não** pode ser é varredura de capítulo ou enfeite vazio.
 
@@ -121,6 +121,8 @@ flowchart TD
 
    O **ID é o ponteiro de volta**: identificação diz de onde o visual veio, o ID permite **reabrir o enunciado** — que é o que falta justamente quando o material se relê semanas depois. Fronteira: vale só para visual de **origem única**; esquema conceitual, hierarquia e comparação geral não têm o que citar, e inventar procedência é pior que não ter (D8). Campo ausente no cabeçalho fica ausente — nunca se completa de memória.
 10. **Hipótese não entra em visual.** Afirmação sobre o mecanismo do erro do aluno — o diagnóstico, o carimbo do padrão, "é reincidência de X", a contagem de uma regra já consolidada — só é desenhada **depois** de o aluno confirmar. Enquanto for hipótese, ela vive no texto, em forma de pergunta. O motivo é a força do suporte: o visual fixa mais que a prosa e é o que sobrevive à conversa, então carimbo errado desenhado vira carimbo errado memorizado — e ainda ganha ar de veredito, o que desestimula a correção que só o aluno pode fazer. Isto **não** restringe o visual de conteúdo: o mecanismo da matéria, o traço da execução, a comparação entre institutos saem normalmente, na hora. A trava incide só sobre a afirmação a respeito de **por que o aluno errou**.
+11. **Sequência de eventos vai numerada e com legenda.** Todo visual que mostra eventos encadeados — lançamentos, etapas, movimentos no tempo — numera cada evento **dentro** do desenho, em ordem cronológica, e traz **abaixo** uma legenda com uma linha por número: o que aconteceu, a operação realizada, o efeito e o valor ou estado resultante. Cabeçalhos de coluna e de eixo dizem o **efeito**, não só o rótulo. Momentos diferentes nunca se juntam num visual sem numeração: ou um visual por momento, ou um visual só com a numeração atravessando todos. **Os campos de cada linha da legenda são da disciplina** — em Contabilidade, a ficha da conta e a legenda do razonete estão na `contabilidade-geral`. Na versão **instrumento** (D20), o aluno leva só a numeração; a legenda é do visual de ancoragem. Motivo: rótulo curto preso a um número só funciona para quem já domina a mecânica, e para quem está construindo-a o visual vira um amontoado de valores — a refação custa mais que a legenda.
+12. **Contagem conferida antes de entregar.** Visual que mostra quantidade — elementos desenhados, posições, linhas, valores, totais — é conferido **elemento por elemento** contra o número afirmado no comentário e na legenda antes de sair. Desenho que contradiz o próprio texto é pior que desenho nenhum: o aluno copia o desenho, e a confusão dura até ele achar a divergência sozinho.
 
 ## Saída
 
@@ -132,6 +134,7 @@ Exporte como **SVG** (vetorial, cola limpo em Word, Google Docs e Obsidian). Ao 
 
 | Versão | Data | Mudança |
 |---|---|---|
+| 1.4 | 2026-10-18 | Duas regras inegociáveis novas, de campo. **Regra 11** (fricção 43): sequência de eventos sai numerada dentro do visual, com legenda por número (fato, operação, efeito e valor) e cabeçalho com o efeito; os campos da legenda são da disciplina (em Contabilidade, na `contabilidade-geral` 1.3); na versão instrumento (D20), só a numeração. **Regra 12** (fricção 42): contagem do desenho conferida elemento por elemento contra o total afirmado no comentário. |
 | 1.3 | 2026-08-27 | Duas entradas, mesma abertura. **Coemissão visual + cartão (D24):** um ponto costuma ter mecânica (visual) e etiqueta arbitrária (cartão) dentro; gerando visual num ponto assim, sinalizar o cartão junto — sem que um substitua o outro. **ID da questão de origem na regra 9** (L12): o ponteiro de volta que permite reabrir o enunciado semanas depois, quando o cabeçalho o trouxer, restrito a visual de origem única e sem completar procedência de memória. |
 | 1.2 | 2026-08-04 | **D20** (seção "Dois públicos": visual de ancoragem × visual-instrumento, com a restrição de projeto do que o aluno redesenha à mão) · quatro gatilhos novos de execução e estrutura (tabela de rastreio, pilha, grade indexada, reta numérica) com as entradas correspondentes no catálogo · regra 10 (hipótese diagnóstica não entra em visual antes da confirmação). |
 | 1.1 | 2026-07-21 | Nota 1 do Bloco A: regra 9 (autocontido) desdobrada em duas dimensões — técnica e de contexto (visual de questão carrega identificação, resumo da situação e o que resolve). |

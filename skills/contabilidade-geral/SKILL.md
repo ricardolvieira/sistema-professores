@@ -5,7 +5,7 @@ description: "Camada de disciplina para Contabilidade Geral, Societária e Avan�
 
 # Contabilidade Geral — camada de disciplina
 
-> **Versão 1.2** · 2026-07-21 · artefato estável (D14)
+> **Versão 1.3** · 2026-10-18 · artefato estável (D14/D20)
 
 Use junto com `metodo-professor` (governa o **como**: explicação sob demanda, sem reescrever capítulo, devolvendo à fonte e a uma questão) e com `resolucao-questoes` (governa a **decisão** diante do enunciado). Este skill traz só o que é específico de Contabilidade: como exemplificar, quais instrumentos de rascunho usar e onde a banca arma a cilada. **Não é conteúdo para explicar a matéria — isso é a apostila.**
 
@@ -36,7 +36,15 @@ O que o dial **não** muda: o aluno responde **antes** do gabarito, toda explica
 Não são teoria: são o que se escreve no papel antes de responder.
 
 - **T1 · Razonete único da ARE.** Varra **todas** as contas de resultado do balancete e jogue cada uma num único T. Saldo credor = lucro; devedor = prejuízo. Preferir isto à DRE em degraus quando o risco é *esquecer uma conta*.
-  **T1 não é só rascunho do aluno — é o VISUAL-PADRÃO do comentário pós-tentativa em questão de escrituração.** Sempre que o comentário envolver lançamento (D/C), variação patrimonial por grupo ou fluxo de valores entre contas, renderize o razonete/esquema de caixas no Design System da `recursos-visuais`, **sem esperar pedido**. Um lançamento por esquema. Vale o mesmo para a **linha do tempo** quando a cilada for de momento (competência: pagamento × consumo, venda × entrega).
+  **T1 não é só rascunho do aluno — é o VISUAL-PADRÃO do comentário pós-tentativa em questão de escrituração.** Sempre que o comentário envolver lançamento (D/C), variação patrimonial por grupo ou fluxo de valores entre contas, renderize o razonete/esquema de caixas no Design System da `recursos-visuais`, **sem esperar pedido**, com a anatomia abaixo. Vale o mesmo para a **linha do tempo** quando a cilada for de momento (competência: pagamento × consumo, venda × entrega).
+  **Anatomia obrigatória do razonete de comentário** (fricção 43, modelo validado pelo aluno). Vale para todo visual com lançamento, em qualquer tema:
+  - **Um razonete por conta**, e não um T por lançamento solto nem várias contas e exercícios num quadro sem ordem. As contas que o mesmo mecanismo movimenta (ex.: Clientes, PECLD e Despesa) podem ficar lado a lado no mesmo visual: o conceito é um só (regra 5 da `recursos-visuais`).
+  - **Ficha da conta no topo de cada T**, nesta ordem: **grupo** (AC, ANC, PC, PNC, PL — ou resultado: receita/despesa) → **subgrupo** (disponível, RLP, investimentos, imobilizado, intangível…) → **natureza do saldo** (devedora/credora) → se é **retificadora**, de qual conta ou grupo. A ordem é deliberada: o grupo vem antes do lado do saldo, porque o lado é consequência do grupo, nunca atalho para descobri-lo.
+  - **Cabeçalho de cada coluna com o efeito**, não só o lado: "DÉBITO — aumenta / CRÉDITO — diminui" nas contas de natureza devedora; invertido nas de natureza credora (passivo, PL, receita e retificadora do ativo). A inversão é justamente o que o aluno ainda não tem automatizado.
+  - **Eventos numerados** dentro do T, em ordem cronológica. Com mais de um exercício ou momento, a numeração atravessa todos e a legenda separa os momentos. Momentos diferentes nunca se juntam num visual sem numeração.
+  - **Legenda abaixo, uma linha por número:** (a) o que aconteceu no mundo real; (b) o lançamento D/C com os valores; (c) o **tipo de fato** — permutativo, modificativo aumentativo, modificativo diminutivo ou misto; (d) o **efeito** em ativo, passivo, PL ou resultado; (e) o saldo resultante, quando ele for o ponto. Na dúvida entre legenda curta e longa, a longa: uma linha a mais custa nada, e um visual ilegível custa a refação inteira.
+  - **Painel de fechamento** com a regra que explica o conjunto (ex.: conta patrimonial carrega saldo para o exercício seguinte; conta de resultado zera no encerramento).
+  - **No rascunho de prova** (instrumento, D20), o aluno reproduz o T, a numeração e os valores. A ficha e a legenda são do visual de estudo.
 - **T2 · Teste da equação `ΔA = ΔP + ΔPL`.** Em questão de variação patrimonial: faça o lançamento do período → some por grupo → teste a equação → elimine o que não fecha. Lembre do **duplo lançamento na venda** (receita **e** baixa do estoque), senão o ΔAtivo sai errado.
 - **T3 · Escada DEAPF completa, com zero nos degraus ausentes.** **D**ebêntures → **E**mpregados → **A**dministradores → **P**artes beneficiárias → **F**undos de assistência/previdência. Escreva a escada inteira e marque zero onde não houver. Cada participação incide sobre o lucro **remanescente da anterior** (base sucessiva).
 - **T4 · Regra do antecipado.** Paguei antes → **ativo** (despesa antecipada). Recebi antes → **passivo** (adiantamento de clientes). Na entrega/consumo, migra para o resultado.
@@ -50,7 +58,7 @@ O estilo-base de cada banca vive no `metodo-professor`. Aqui, a manifestação e
 
 - **FCC** — literalidade da **Lei 6.404/76** e dos CPCs: ordem dos degraus da DRE (art. 187), percentuais (reserva legal, dividendo obrigatório), definições de estoque e de valor recuperável. Alvo predileto: troca de número e de palavra no dispositivo.
 - **FGV** — **cálculo aplicado**: dá um balancete ou uma lista de fatos e pede *o valor* de um degrau específico, plantando uma conta que muda de lugar (desconto financeiro, frete sobre venda) ou uma isca patrimonial. Erra quem não varre a lista inteira (usar T1/T5).
-- **CEBRASPE** — o formato observado é **múltipla escolha "assinale a correta"** (não certo/errado). A mecânica de ataque está em `resolucao-questoes` (cardápio de defeitos do "assinale a correta": caçar o defeito de cada errada, não a certa). A manifestação contábil recorrente até aqui é **competência × caixa** — ver abaixo. **O acúmulo de casos por banca não mora nesta skill:** vai para a seção *Dossiê de banca* do `caderno-<disciplina>.md` do Project-filho (D14). Sobe para cá só o que consolidar como regra no passe de promoção.
+- **CEBRASPE** — cobra nos dois formatos — **"assinale a correta"** e **certo/errado**. A mecânica de ataque está em `resolucao-questoes` (no "assinale a correta", o cardápio de defeitos: caçar o defeito de cada errada, não a certa). A manifestação contábil recorrente até aqui é **competência × caixa** — ver abaixo. **O acúmulo de casos por banca não mora nesta skill:** vai para a seção *Dossiê de banca* do `caderno-<disciplina>.md` do Project-filho (D14). Sobe para cá só o que consolidar como regra no passe de promoção.
 
 **Núcleo estável — competência × caixa (CEBRASPE):** os dois regimes se definem por **momento de reconhecimento** — fato gerador × ingresso/saída de numerário. Traduza cada alternativa nessa pergunta única: *"segundo esta frase, o que dispara o registro?"* Se a resposta **muda no meio da frase**, é cauda contraditória (a cabeça define competência e o final a condiciona ao caixa) — o defeito mais traiçoeiro do formato. Dois corolários: a alternativa correta costuma ser a **definição limpa** de um dos regimes (frase curta, sem condicional no fim, sem superlativo — sinal a favor, não contra); e vale o **T7**, procurar nas alternativas a definição do regime oposto. Gatilho visual: **linha do tempo com os dois eventos marcados**.
 
@@ -97,13 +105,21 @@ Cada entrada vem carimbada com o padrão transversal de `resolucao-questoes` (P1
 - Base das participações: do resultado do exercício deduzem-se **prejuízos acumulados** e a **provisão para o IR** *antes* de qualquer participação (art. 189). Depois, **base sucessiva** pela escada DEAPF — aplicar todos os percentuais sobre a mesma base é [P4].
 - **Reserva legal**: 5% do lucro líquido, até 20% do capital social. **Dividendo obrigatório**: se o estatuto for omisso, 50% do lucro ajustado; se fixado sem detalhe, ao menos 25%. Números trocados são o alvo da FCC [P1] — **confira o dispositivo vigente quando o item for de percentual fino.**
 
+## Como este catálogo se lê pelo tipo transversal
+
+Os carimbos acima vêm da `resolucao-questoes`, que guarda a legenda e o antídoto de cada um. Três leituras que só aparecem quando se olha o catálogo inteiro de uma vez:
+
+- **A disciplina é dominada por *inversão de mecanismo (P4)*, na forma "muda de lugar ou de momento, não some".** O desconto financeiro sai da receita e reaparece como despesa; o adiantamento nasce passivo e morre na entrega; o frete integra o custo em vez de ir para despesa; o dividendo recebido reduz o investimento em vez de virar receita; a participação incide sobre o remanescente da anterior. A pergunta-antídoto é única: *essa conta sumiu, ou só mudou de conta ou de momento?* O furo costuma estar no débito, ou na linha descartada cedo demais.
+- ***Rótulo trocado (P1)*** concentra-se nos **pares de nome**: degraus da DRE (bruto × operacional × líquido), frete sobre compra × sobre venda, VRL × valor justo, MEP × custo, competência × caixa (T7). A definição continua verdadeira, só que para o outro rótulo, e o antídoto é o tapa-o-rótulo.
+- ***Generalização de regra que tem exceção (P5)*** aparece nas exceções que a banca finge não existir: terreno não deprecia, o goodwill não reverte, o MEP pede pro rata na compra ou venda no meio do exercício, a depreciação começa na disponibilidade para uso e não na produção. Sinal de alerta: uma regra geral aplicada sem perguntar "tem exceção aqui?".
+
 ## Guardrail de norma volátil
 
 A Lei 6.404/76 e os pronunciamentos do CPC mudam (convergência com IFRS, revisões numeradas). Quando o detalhe for fino — percentual, ordem de degrau, classificação na DFC, redação de um CPC revisado — **mande conferir o dispositivo vigente (ou pesquise) em vez de cravar de memória**. Ensinar regra superada é pior que não ensinar.
 
 ## Registro do erro
 
-Quando a pessoa errar uma questão, o diagnóstico é da `resolucao-questoes` (conteúdo × pegadinha). O que cabe **aqui**: nomear o **mecanismo contábil** da falha em uma frase e carimbar o padrão transversal — depois **propor** o registro no `caderno-contabilidade.md` da base de conhecimento do professor, seção *Estado do aluno*. Se o que emergiu foi um **comportamento de banca** (defeito típico, tema recorrente), o destino é a seção *Dossiê de banca* do mesmo caderno, em uma linha (`banca · ano/órgão · tema · defeito · P#`) — não nesta skill. **Nunca regenere um documento de revisão sem autorização explícita**, e nunca gere apostila ou HTML de estudo como resposta padrão a uma dúvida: a entrega é o destravamento pontual, não material novo.
+Quando a pessoa errar uma questão, o diagnóstico é da `resolucao-questoes` (conteúdo × pegadinha). O que cabe **aqui**: nomear o **mecanismo contábil** da falha em uma frase e carimbar o padrão transversal — depois **propor** o registro no `caderno-contabilidade-geral.md` da base de conhecimento do professor, seção *Estado do aluno*, pelo protocolo da `analise-desempenho`. Se o que emergiu foi um **comportamento de banca** (defeito típico, tema recorrente), o destino é a seção *Dossiê de banca* do mesmo caderno, em uma linha (`banca · ano/órgão · tema · defeito · P#`) — não nesta skill. **Nunca regenere um documento de revisão sem autorização explícita**, e nunca gere apostila ou HTML de estudo como resposta padrão a uma dúvida: a entrega é o destravamento pontual, não material novo.
 
 ## Lembrete de método
 
@@ -113,6 +129,7 @@ Este catálogo serve para **sinalizar a cilada** enquanto você explica o ponto 
 
 | Versão | Data | Mudança |
 |---|---|---|
+| 1.3 | 2026-10-18 | **Anatomia do razonete de comentário (fricção 43).** A T1 dizia "um lançamento por esquema", o que contradizia o modelo validado pelo aluno. Passa a ser: um razonete por conta, ficha da conta no topo (grupo → subgrupo → natureza → retificadora), cabeçalho de coluna com o efeito, eventos numerados em ordem cronológica e legenda por evento (fato do mundo real · D/C · tipo de fato · efeito em A/P/PL/resultado · saldo). No rascunho de prova, só a numeração (D20). **Bloco "Como este catálogo se lê pelo tipo transversal"** (L4), no molde da `direito-tributario` 1.1. Duas correções de fato: o **CEBRASPE** cobra também em certo/errado (o dossiê de 2026-09-07 tem cinco ocorrências), e o caderno se chama `caderno-contabilidade-geral.md`, com o registro conduzido pela `analise-desempenho`. |
 | 1.2 | 2026-07-21 | D14: bloco CEBRASPE reduzido ao núcleo estável, com ponteiro para o *Dossiê de banca* do caderno; FGV/FCC declarados sem bloco consolidado; "Registro do erro" apontando para `caderno-contabilidade.md` (duas seções). |
 | 1.1 | 2026-07-21 | Nota 2 do Bloco A: bloco CEBRASPE construído a partir das questões reais (competência × caixa). Remoção do resquício "empilhado para mobile" no T1, contrário ao D13. |
 | 1.0 | — | Versão inicial (D12): didática, T1–T7, dial de suporte, catálogo de pegadinhas por tema, guardrail de norma volátil. |
