@@ -1,6 +1,6 @@
 # Caderno de Direito Constitucional
 
-> **Última atualização:** 2026-11-06 · **Travamentos:** T0 · **Erros:** E0 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 0 (em `flashcards-direito-constitucional.csv`) · **Sessões:** 0 teoria / 0 bateria / 0 mista
+> **Última atualização:** 2026-11-07 · **Travamentos:** T6 · **Erros:** E0 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 4 (em `flashcards-direito-constitucional.csv`) · **Sessões:** 1 teoria / 0 bateria / 0 mista
 
 > Arquivo **vivo** do Project-filho (D14/D25). Quatro naturezas: onde **eu travo** estudando (eixo conteúdo), o que **eu erro** resolvendo (eixo questão), o que **a banca** faz (dossiê) e onde **a fonte** erra (errata).
 >
@@ -22,6 +22,12 @@
 
 | # | Data | Origem (aula/página) | Tema | O que travou (minhas palavras) | Carga | Destravou com | Reincidência |
 |---|---|---|---|---|---|---|---|
+| T1 | 2026-11-07 | Aula 04, p. 54 | HC — legitimidade universal | "O HC prescinde da outorga de mandado judicial": não entendi o trecho nem a palavra "prescinde" | extrínseca | "Mandado judicial" aqui é procuração; "prescinde" é dispensa: qualquer pessoa impetra em favor de outra, sem autorização | — |
+| T2 | 2026-11-07 | Aula 04, pp. 54, 59 e 61 | HC e HD — polo ativo e passivo | Não entendi o que a apostila chama de polo ativo e polo passivo no HC e no HD | intrínseca | Ativo é quem impetra; passivo é contra quem se impetra. No HC, impetrante (qualquer pessoa) e paciente (só pessoa física) são papéis distintos | — |
+| T3 | 2026-11-07 | Aula 04, p. 61 | HD — polo passivo de direito privado | Como pessoa de direito privado entra no polo passivo do HD se o banco de dados tem de ser "de caráter público"; pedi exemplos | mista | Caráter público é dado que circula para terceiros ou não é de uso privativo (Lei 9.507/97, art. 1º, p. único): SPC e Serasa sim, cadastro interno de banco não | — |
+| T4 | 2026-11-07 | Aula 04, p. 65 | MS — direito líquido e certo | O que é "controvérsia sobre matéria de direito" na Súmula 625 | intrínseca | Divergência sobre a lei não impede o MS; o que se exige é fato provado por documento (prova pré-constituída) | — |
+| T5 | 2026-11-07 | Aula 04, p. 67 | MS incabível — recurso com efeito suspensivo | Não entendi por que recurso com efeito suspensivo impede o MS | intrínseca | Efeito suspensivo congela o ato ou a decisão, então o direito já está protegido; exceção: omissão da autoridade (Súmula 429/STF) | — |
+| T6 | 2026-11-07 | Aula 04, pp. 67–68 | MS incabível — ato jurisdicional | O que é "ato de natureza jurisdicional" | mista | É o juiz julgando (sentença, liminar); ato administrativo do Judiciário, como nomear servidor, admite MS | — |
 
 *Carga (D2):* **intrínseca** = o assunto é difícil e o texto está claro — o esforço é legítimo e fica. **extrínseca** = a redação é que atrapalha (prolixa, mal sequenciada, convenção não declarada) — a forma se limpa, o conteúdo não. **mista** = limpou-se a forma e ainda restou dificuldade real.
 
@@ -51,6 +57,7 @@
 
 | Data | Tipo | Volume | Resultado | Padrão / tema dominante | Leitura de evolução |
 |---|---|---|---|---|---|
+| 2026-11-07 | teoria | HC, HD e MS (pp. 54–68) e ação popular (dúvida pontual) | 6 travamentos: 3 intrínseca, 2 mista, 1 extrínseca | MS incabível (T4, T5, T6) | Primeira sessão, só o eixo conteúdo com dado; densidade não calculável (dúvidas pontuais, sem leitura corrida) |
 
 *Sessão de **teoria**:* volume = páginas ou tópicos cobertos; resultado = quantos travamentos e qual carga dominou. *Sessão de **bateria**:* volume = questões; resultado = o placar de três parcelas. *Mista:* as duas colunas preenchidas, separadas por `·`.
 

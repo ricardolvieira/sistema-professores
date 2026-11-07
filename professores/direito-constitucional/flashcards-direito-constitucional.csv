@@ -2,3 +2,7 @@
 #html:true
 #columns:Frente	Verso	Tags
 #tags column:3
+Súmula 625/STF: o que diz?	<b>Controvérsia sobre matéria de direito não impede concessão de mandado de segurança.</b><br>Direito líquido e certo é <i>fato provado de plano</i> (prova pré-constituída), não lei pacífica.	direito-constitucional::remedios::mandado-de-seguranca origem::T4 tipo::conceito
+Súmula 429/STF: o que diz?	<b>Recurso administrativo com efeito suspensivo não impede MS contra omissão da autoridade.</b><br><i>Se a autoridade não decide, o recurso fica parado e a suspensão não protege nada.</i>	direito-constitucional::remedios::mandado-de-seguranca origem::T5 tipo::conceito
+Súmula 267/STF: o que diz?	<b>Não cabe MS contra ato judicial passível de recurso ou correição.</b><br><i>O MS não é sucedâneo recursal.</i>	direito-constitucional::remedios::mandado-de-seguranca origem::T5 tipo::conceito
+Habeas data: quando o banco de dados é de caráter público (Lei 9.507/97, art. 1º, p. único)?	<b>Quando contém informações que sejam ou possam ser transmitidas a terceiros, ou que não sejam de uso privativo</b> do órgão ou entidade que as mantém.<br><i>SPC e Serasa: sim. Cadastro interno de cliente de um banco: não.</i>	direito-constitucional::remedios::habeas-data origem::T3 tipo::conceito
