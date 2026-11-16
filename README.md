@@ -11,8 +11,9 @@ Project. Aqui fica o registro do que já foi entregue.
 | `atelie/` | decisões, backlog, mapa, template do caderno, instruções | base do Project "Mãe dos professores" |
 | `skills/<nome>/` | `SKILL.md` e `scripts/` de cada skill, mais o pacote `<nome>.skill` da versão entregue | skill instalada na conta |
 | `professores/<disciplina>/` | prompt de estado, caderno, flashcards, notas de melhoria; handoffs de sessão (`handoff-<assunto>.md`), que não sobem para a base | base do Project-filho (exceto handoffs, colados no chat) |
+| `professores/<disciplina>/material-revisao/` | material de revisão curado do fechamento de sessão (HTML único autocontido), um arquivo por conteúdo: `revisao-<disciplina>-meta-NN-tarefa-NN.html` | nenhuma: não sobe para a base (exceção ao espelhamento, como os handoffs) |
 
-O caminho aqui espelha o caminho na base, para o diff ser comparável.
+O caminho aqui espelha o caminho na base, para o diff ser comparável. As exceções são os handoffs e o `material-revisao/`, que não têm cópia na base.
 
 ## Convenções
 
