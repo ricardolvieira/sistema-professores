@@ -1,6 +1,6 @@
 # Caderno de Direito Administrativo
 
-> **Última atualização:** 2026-11-16 · **Travamentos:** T0 · **Erros:** E0 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 0 (em `flashcards-direito-administrativo.csv`) · **Sessões:** 0 teoria / 0 bateria / 0 mista
+> **Última atualização:** 2026-11-20 · **Travamentos:** T2 · **Erros:** E5 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 0 (em `flashcards-direito-administrativo.csv`) · **Sessões:** 0 teoria / 0 bateria / 2 mista
 
 > Arquivo **vivo** do Project-filho (D14/D25). Quatro naturezas: onde **eu travo** estudando (eixo conteúdo), o que **eu erro** resolvendo (eixo questão), o que **a banca** faz (dossiê) e onde **a fonte** erra (errata).
 >
@@ -22,6 +22,8 @@
 
 | # | Data | Origem (aula/página) | Tema | O que travou (minhas palavras) | Carga | Destravou com | Reincidência |
 |---|---|---|---|---|---|---|---|
+| T1 | 2026-11-17 | Aula 06, p. 63 (e p. 43) | Vícios: os dois tipos de desvio de finalidade | "Sobre os dois tipos de desvio de finalidade, estou confuso, parece um pouco abstrato" | intrínseca | Duas perguntas em ordem (1. o fim é público ou pessoal? 2. se público, é o fim que a lei deu a esse ato?) + exemplo da ambulância; acertou os 2 casos novos | Mesmo elemento da confusão competência × finalidade (E1) |
+| T2 | 2026-11-19 | Aula 06, p. 44 (forma) e pp. 92 e 171 (sentido formal) | Forma (elemento) × ato em sentido formal (critério) | "Ainda não fixei esses conceitos, temos o sentido formal e a forma, correto?" | intrínseca | Duas perguntas (como o ato aparece? × quem editou?) + "roupa × endereço de origem"; acertou 3/3 frases, inclusive a do vício de forma | Mesmo tema do erro no sentido formal da portaria do TRE (E4) |
 
 *Carga (D2):* **intrínseca** = o assunto é difícil e o texto está claro — o esforço é legítimo e fica. **extrínseca** = a redação é que atrapalha (prolixa, mal sequenciada, convenção não declarada) — a forma se limpa, o conteúdo não. **mista** = limpou-se a forma e ainda restou dificuldade real.
 
@@ -35,6 +37,11 @@
 
 | # | Data | Questão (banca/ano/órgão) | Veredito | Mecanismo da falha (minhas palavras) | Padrão | Tema | Eixo |
 |---|---|---|---|---|---|---|---|
+| E1 | 2026-11-17 | Simulada (professor), adaptada de FCC/2017/TRE-PR, q. 71, p. 286 | Errou: marcou competência; era finalidade (desvio de finalidade) | "Acho que competência, pois um diretor não tem competência para isso": li o fim pessoal (prejudicar desafeto) como falta de poder legal. Ter competência não salva ato com fim errado. Obs.: o enunciado resumido não dizia que o diretor era competente | P1 (rótulo trocado) | Elementos: competência × finalidade | conteúdo |
+| E2 | 2026-11-17 | Recall livre (professor), revisão da Meta 1 | Errou: respondeu os princípios LIMPE (com "E" de economicidade em vez de eficiência) quando a pergunta era atributos (PATI) e elementos (ComFiForMOb) | "Não lembro quase nada, mas acho que seguem os princípios LIMPE da CF": puxei a lista que eu sabia no lugar da que foi pedida | P1 (rótulo trocado) | Atributos × princípios | conteúdo |
+| E3 | 2026-11-19 | Simulada (professor), caso 2 de exequibilidade | Errou: marcou eficaz; era pendente (termo inicial) | Vi que a licença estava assinada e pronta e concluí que já valia, mas "só passa a valer em 1º de janeiro" é termo inicial: o ato está pronto e ainda não produz efeitos | P1 (rótulo trocado) | Exequibilidade: pendente × eficaz | conteúdo |
+| E4 | 2026-11-19 | Simulada (professor), portaria de suspensão do TRE | Errou no formal: marcou sim; pelo critério orgânico era não (órgão do Judiciário) | Justifiquei o sentido formal por "editada, assinada e publicada", ou seja, pelo ciclo de formação, em vez de perguntar quem editou. Obs.: a camada "TRE é Judiciário" não foi planejada pelo professor | P1 (rótulo trocado) | Ato em sentido formal × material | conteúdo |
+| E5 | 2026-11-20 | Simulada (professor), banca de jornal com prazo de 5 anos | Acerto qualificado: classificou como permissão e acertou que vale o fixado no ato, mas com dúvida ("creio"), sem citar a indenização e chamando o ato de contrato | "Como a permissão é precária, mas deve ter havido um contrato, creio que deva obedecer o definido nas cláusulas contratuais": misturei a permissão de uso condicionada (ato unilateral) com a permissão de serviço público (contrato) | P1 (rótulo trocado) | Permissão: condicionada × de serviço público | conteúdo |
 
 *Eixo:* **conteúdo** = faltava o conceito (remédio: apostila, via `metodo-professor`). **técnica** = o conceito existia e a leitura escorregou (remédio: procedimento e radar).
 
@@ -51,6 +58,8 @@
 
 | Data | Tipo | Volume | Resultado | Padrão / tema dominante | Leitura de evolução |
 |---|---|---|---|---|---|
+| 2026-11-17 | mista (revisão da Meta 1 + início da tarefa 8) | 1 recall + 5 questões simuladas (3 + 2 casos) · pp. 43 e 63 | 4 acertos · 1 erro · 0 qualificados · recall falhou (E2) · 1 travamento (intrínseca) | P1 ×2; finalidade (E1, T1) | Tudo converge para o elemento finalidade; o erro da manhã (E1) virou acerto à noite nos casos novos |
+| 2026-11-19 a 20 | mista (tarefa 8: mérito, classificação, atos normativos e negociais) | 10 questões simuladas (4 exequibilidade + 1 portaria do TRE + 3 frases forma × sentido formal + 2 autorização × permissão) · pp. 69–71, 86–88, 92–94 e 105–108 | 7 acertos · 2 erros · 1 qualificado · 1 travamento (intrínseca) | P1 ×3; pendente × eficaz (E3), sentido formal (E4, T2), permissão condicionada × de serviço público (E5) | Cinco rótulos trocados entre institutos vizinhos (E1–E5); o padrão persiste, mas o caso seguinte ao erro sai certo em todos os temas |
 
 *Sessão de **teoria**:* volume = páginas ou tópicos cobertos; resultado = quantos travamentos e qual carga dominou. *Sessão de **bateria**:* volume = questões; resultado = o placar de três parcelas. *Mista:* as duas colunas preenchidas, separadas por `·`.
 
