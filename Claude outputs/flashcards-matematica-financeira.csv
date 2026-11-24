@@ -1,0 +1,5 @@
+#separator:Tab
+#html:true
+#columns:Frente	Verso	Tags
+#tags column:3
+Na fórmula J = C·i·t, em que forma a taxa entra e sai?	<b>Forma unitária (decimal)</b>, na mesma unidade de tempo de t.<br>Para virar percentual: <b>× 100</b> (0,005 → 0,5%).	matematica-financeira::juros-simples::forma-unitaria origem::E7 tipo::conceito
