@@ -1,6 +1,6 @@
 # Caderno de Matemática Financeira
 
-> **Última atualização:** 2026-11-16 · **Travamentos:** T0 · **Erros:** E16 · **Linhas no dossiê:** 9 (+2 regras consolidadas) · **Erratas:** F0 · **Cartões:** 1 (em `flashcards-matematica-financeira.csv`) · **Sessões:** 0 teoria / 1 bateria / 0 mista
+> **Última atualização:** 2026-11-23 · **Travamentos:** T0 · **Erros:** E16 · **Linhas no dossiê:** 9 (2.1) + 2 regras consolidadas (2.2) · **Erratas:** F0 · **Cartões:** 1 (em `flashcards-matematica-financeira.csv`) · **Sessões:** 0 teoria / 1 bateria / 0 mista
 
 > Arquivo **vivo** do Project-filho (D14/D25). Quatro naturezas: onde **eu travo** estudando (eixo conteúdo), o que **eu erro** resolvendo (eixo questão), o que **a banca** faz (dossiê) e onde **a fonte** erra (errata).
 >
