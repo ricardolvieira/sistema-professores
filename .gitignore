@@ -9,3 +9,7 @@ desktop.ini
 # Temporários
 *.tmp
 ~$*
+
+# Fora do repositório (decisão de 2026-11-25): cópias soltas de sessão e backup pré-migração
+Claude outputs/
+professores/contabilidade-geral/caderno-contabilidade-geral-bkp.md
