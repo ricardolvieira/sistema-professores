@@ -1,6 +1,6 @@
 # Caderno de Português
 
-> **Última atualização:** 2026-11-09 · **Travamentos:** T0 · **Erros:** E0 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 0 (em `flashcards-portugues.csv`) · **Sessões:** 0 teoria / 0 bateria / 0 mista
+> **Última atualização:** 2026-11-25 · **Travamentos:** T3 · **Erros:** E0 · **Linhas no dossiê:** 0 · **Erratas:** F0 · **Cartões:** 0 (em `flashcards-portugues.csv`) · **Sessões:** 0 teoria / 0 bateria / 1 mista
 
 > Arquivo **vivo** do Project-filho (D14/D25). Quatro naturezas: onde **eu travo** estudando (eixo conteúdo), o que **eu erro** resolvendo (eixo questão), o que **a banca** faz (dossiê) e onde **a fonte** erra (errata).
 >
@@ -22,6 +22,9 @@
 
 | # | Data | Origem (aula/página) | Tema | O que travou (minhas palavras) | Carga | Destravou com | Reincidência |
 |---|---|---|---|---|---|---|---|
+| T1 | 2026-11-10 | Aula 00, teoria pp. 54–55; questão TRT 4ª/2022, p. 56 | Expressões problemáticas — por que | Dificuldade de identificar o "por que" de preposição + pronome relativo | intrínseca | Teste da troca por "pelo qual / pela qual" e achar o substantivo que o "que" retoma (confirmado com *o caminho por que passamos*) | — |
+| T2 | 2026-11-10 | Aula 00, p. 54 | Expressões problemáticas — mal × mau | Achei que a regra do "mal" como "doença, coisa ruim" valia para "mal contato" | intrínseca | O *mal* substantivo é o núcleo da expressão (vem com artigo ou determinante: um mal); em *mau contato* o substantivo é *contato* e quem o qualifica é o adjetivo *mau* (teste bom/bem) | — |
+| T3 | 2026-11-10 | Aula 00, lista de questões, comentários pp. 73–74 (FGV/2024) | Expressões problemáticas — onde × aonde | Pedi a regra de quando usar *onde* e quando usar *aonde* | intrínseca | Teste da preposição que o verbo pede: *em* → onde; *a* → aonde (confirmado com *aonde pretende chegar*) | — |
 
 *Carga (D2):* **intrínseca** = o assunto é difícil e o texto está claro — o esforço é legítimo e fica. **extrínseca** = a redação é que atrapalha (prolixa, mal sequenciada, convenção não declarada) — a forma se limpa, o conteúdo não. **mista** = limpou-se a forma e ainda restou dificuldade real.
 
@@ -44,6 +47,7 @@
 
 | Lacuna | Origem (T# / E#) | Status |
 |---|---|---|
+| Grafia de *desfalecer* e comentário da apostila (pp. 49–50, ALEPI/2020) que a cita como a palavra errada, enquanto a alternativa c traz *desfalescer* — conferir no VOLP | — (observação da sessão de 2026-11-10) | aberta: Dicio e Wiktionary confirmam *desfalecer*; falta o VOLP. Se confirmar, vira F1 (afeta o gabarito: não) |
 
 **Lacuna com mais de um nome registra os dois desde a abertura.** Quando o mesmo conteúdo aparece na literatura sob nomenclaturas diferentes — edição antiga × edição nova, tradução × original, autor × autor —, a lacuna se escreve com as duas formas (`nome A / nome B`), não só com a que apareceu primeiro. Motivo: lacuna fechada sob um nome continua aberta sob o outro, e a banca cobra pelo que ela quiser. Descobrir o segundo nome só quando ele custa uma questão é caro e evitável — foi assim que uma lacuna dada por estudada reapareceu como erro novo, com outro rótulo.
 
@@ -51,6 +55,7 @@
 
 | Data | Tipo | Volume | Resultado | Padrão / tema dominante | Leitura de evolução |
 |---|---|---|---|---|---|
+| 2026-11-10 (fechada em 2026-11-25) | mista | Teoria: expressões problemáticas, pp. 54–56, e comentários de onde × aonde na lista, pp. 73–74 · Questão: 1 intercalada (pp. 49–50) | 3 travamentos, carga intrínseca · 1 acerto limpo, 0 erros, 0 acertos qualificados (1+0+0=1; ALEPI/2020) | Expressões problemáticas: a saída foi sempre achar a preposição exigida ou testar a troca | Só o eixo conteúdo tem dado; ainda sem erro em questão para cruzar. Densidade não calculada (dúvidas pontuais, não leitura corrida) |
 
 *Sessão de **teoria**:* volume = páginas ou tópicos cobertos; resultado = quantos travamentos e qual carga dominou. *Sessão de **bateria**:* volume = questões; resultado = o placar de três parcelas. *Mista:* as duas colunas preenchidas, separadas por `·`.
 
