@@ -1,0 +1,9 @@
+#separator:Tab
+#html:true
+#columns:Frente	Verso	Tags
+#tags column:3
+ICMS no transporte aéreo: o que incide?	Passageiros (nacional e internacional) e carga internacional: <b>não incide</b> (ADI 1.600).<br>Carga aérea interestadual ou intermunicipal: <b>incide</b>.	LTE::transporte origem::T1
+Tema 705: a inadimplência do usuário afasta o ICMS-comunicação?	<b>Não.</b> O fato gerador é a prestação (disponibilização do sinal), não o pagamento.<br>A operadora é a contribuinte de direito.	LTE::comunicacao origem::T2
+DIFAL: quem recolhe?	Destinatário <b>contribuinte</b>: ele mesmo recolhe.<br>Destinatário <b>não contribuinte</b>: o remetente recolhe.<br>Em ambos, o Estado de destino recebe (art. 155, §2º, VIII).	LTE::DIFAL origem::E1
+IPI fora da base do ICMS: quais as condições?	Todas juntas:<br>1) operação entre contribuintes do ICMS;<br>2) produto para industrialização ou comercialização;<br>3) fato gerador de ICMS e IPI.<br>Faltou uma, o IPI <b>entra</b> (ex.: ativo imobilizado/uso). CF, art. 155, §2º, XI.	LTE::IPI_base origem::E2
+Transição ICMS → IBS: frações da alíquota	Alíquota da lei × <b>9/10</b> (2029), <b>8/10</b> (2030), <b>7/10</b> (2031), <b>6/10</b> (2032).<br>Extinção em <b>2033</b> (ADCT, arts. 128 e 129).	LTE::transicao origem::E3
